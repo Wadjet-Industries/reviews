@@ -5,7 +5,7 @@ USE reviewsDB;
 
 CREATE TABLE Restaurants (
   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  name varchar(20) NOT NULL
+  name varchar(20) NOT NULL 
 );
 
 CREATE TABLE Users (
@@ -18,12 +18,13 @@ CREATE TABLE Users (
 CREATE TABLE Reviews (
   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   user_id INT NOT NULL,
+  review TEXT NOT NULL, 
   overall INT NOT NULL,
   food INT NOT NULL,
   service INT NOT NULL,
   ambience INT NOT NULL,
   value INT NOT NULL,
-  noise TEXT NOT NULL,
+  noise varchar(20) NOT NULL,
   would_recommend BOOLEAN NOT NULL,
   date DATE NOT NULL, 
   restaurant_id INT NOT NULL,
