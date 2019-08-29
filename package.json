@@ -10,23 +10,34 @@
   "scripts": {
     "react-dev": "webpack -d --watch",
     "server-dev": "nodemon server/index.js",
-    "seed":  "node database/seed.js"
+    "seed": "node database/seed.js",
+    "test-watch": "jest --watchAll --config jest.config.js",
+    "test-coverage": "jest --verbose --coverage"
   },
   "dependencies": {
     "axios": "^0.19.0",
+    "babel-jest": "^24.9.0",
     "body-parser": "^1.19.0",
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.14.0",
     "express": "^4.17.1",
     "faker": "^4.1.0",
+    "jest": "^24.9.0",
+    "jest-config": "^24.9.0",
     "mysql": "^2.17.1",
     "nodemon": "^1.19.1",
     "parser": "^0.1.4",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
+    "styled-components": "^5.0.0-beta.8-groupsizefix",
     "webpack": "^4.39.2",
-    "webpack-cli": "^3.3.7"
+    "webpack-cli": "^3.3.7",
+    "whatwg-fetch": "^3.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.5.5",
+    "@babel/plugin-syntax-dynamic-import": "^7.2.0",
+    "@babel/plugin-transform-runtime": "^7.5.5",
     "@babel/preset-env": "^7.5.5",
     "@babel/preset-react": "^7.0.0",
     "babel-loader": "^8.0.6",

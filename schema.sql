@@ -11,6 +11,8 @@ CREATE TABLE Restaurants (
 CREATE TABLE Users (
   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   user TEXT NOT NULL,
+  user_initials varchar(2) NOT NULL,
+  initials_background varchar(20) NOT NULL,
   location TEXT NOT NULL,
   vip BOOLEAN NOT NULL
 );
@@ -32,4 +34,4 @@ CREATE TABLE Reviews (
     REFERENCES Users(id),
   FOREIGN KEY (restaurant_id)
     REFERENCES Restaurants(id)
-);
+); 

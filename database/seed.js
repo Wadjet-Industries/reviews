@@ -22,13 +22,35 @@ const seedRestaurants = () => {
 }
 
 const seedUsers = () => {
+  let background = ['#BB6ACD', '#D86441', '#6C8AE4', '#DF4E96'];
   for (var i = 1; i <= 300; i++) {
     let randomUser =  faker.name.firstName();
+    if (getRandomIntInclusive(1, 10) > 3) {
+      randomUser += faker.name.lastName();
+    }
+    let initials = randomUser[0].toUpperCase();
+    for(let i = 1; i <= randomUser.length; i++) {
+      let capitalLetters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+      if (capitalLetters.includes(randomUser[i])) {
+        initials += randomUser[i];
+        break;
+      }
+    }
+    let randomInitialsBG = background[getRandomIntInclusive(0, 3)];
     let randomLocation = faker.address.city();
-    let vipStatus = faker.random.boolean();
+    let vipStatus = false;
+    if (getRandomIntInclusive(1, 10) > 7) {
+      vipStatus = true;
+    }
 
     let input = "INSERT INTO Users set ?";
-    let value = {user: randomUser, location: randomLocation, vip: vipStatus};
+    let value = {
+      user: randomUser, 
+      user_initials: initials,
+      initials_background: randomInitialsBG,
+      location: randomLocation, 
+      vip: vipStatus
+    };
 
     db.query(input, value, (error, results) => {
       if (error) {
@@ -72,7 +94,7 @@ const seedReviews = () => {
 
     db.query(input, value, (error, results) => {
       if (error) {
-        console.log(error, 'could not seed Users');
+        console.log(error, 'could not seed Reviews');
       } else {
         // console.log(results);
       }
