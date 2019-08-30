@@ -4,30 +4,30 @@ import moment from 'moment';
 import StarRatings from 'react-star-ratings';
 import textbox from '../../../public/textbox.png';
 import report from '../../../public/Report2.png';
+import reportIcon from '../../../public/reportIcon.png';
 
 
-
-const MainDiv = styled.section`
+const MainDiv = styled.div`
   width: 608px;
   border-bottom: 1px solid #D3D3D3;
   padding-top: 16px;
   padding-bottom: 16px;
 `;
 
-const FlexDiv = styled.section`
+const FlexDiv = styled.div`
   display: flex;
 `;
 
 //User Div
 
-const UserDiv = styled.section`
+const UserDiv = styled.div`
   display: block;
   width: 96px;
   margin-left: 16px;
   margin-right: 16px;
 `;
 
-const InitialsCircle = styled.section`
+const InitialsCircle = styled.div`
   display: flex;
   justify-content: center;
   background-color: #BB6ACD;
@@ -40,11 +40,10 @@ const InitialsCircle = styled.section`
   line-height:3em;
   margin: 0 auto;
   font-size: 16px;
-  font-weight: bold;
   font-family: 'Brandon Text', 'Josefin Sans', sans-serif;
 `;
 
-const Username = styled.section`
+const Username = styled.div`
   text-align: center;
   margin: 0 auto;
   margin-top: 5px;
@@ -56,7 +55,7 @@ const Username = styled.section`
   font-family: 'Brandon Text', 'Josefin Sans', sans-serif;
 `;
 
-const UserLocation= styled.section`
+const UserLocation= styled.div`
   text-align: center;
   margin: 0 auto;
   margin-top: 5px;
@@ -70,25 +69,26 @@ const UserLocation= styled.section`
 
 //Review Div
 
-const ReviewDiv = styled.section`
+const ReviewDiv = styled.div`
   display: block;
 `;
 
-const ReviewDate = styled.section`
+const ReviewDate = styled.span`
   display: inline-flex;  
   color: #2D333F;
   font-size: 14px;
   margin-left: 4px;
   margin-right: 4px;
+  font-weight: 400;
   font-family: 'Brandon Text', 'Josefin Sans', sans-serif;
 `;
 
-const ReviewPropertiesDiv = styled.section`
+const ReviewPropertiesDiv = styled.div`
   margin-above: 8px;
   font-family: 'Brandon Text', 'Josefin Sans', sans-serif;
 `;
 
-const ReviewDot = styled.section`
+const ReviewDot = styled.div`
   display: inline-flex;
   height: 3px;
   width: 3px;
@@ -98,7 +98,7 @@ const ReviewDot = styled.section`
   font-family: 'Brandon Text', 'Josefin Sans', sans-serif;
 `;
 
-const ReviewNumericalRating = styled.section`
+const ReviewNumericalRating = styled.span`
   display: inline-flex;
   font-weight: bold;
   color: #DA3743;
@@ -107,7 +107,7 @@ const ReviewNumericalRating = styled.section`
   margin-right: 2px;
 `;
 
-const ReviewProperties = styled.section`
+const ReviewProperties = styled.span`
   display: inline-flex;
   font-weight: bold;
   color: #2D333F;
@@ -116,15 +116,15 @@ const ReviewProperties = styled.section`
   font-family: 'Brandon Text', 'Josefin Sans', sans-serif;
 `;
 
-const ReviewStyling = styled.section`
+const ReviewStyling = styled.p`
   color: #2D333F;
-  font-size: 16px;
+  font-size: 1rem;
   margin-top: 10px;
   margin-bottom: 10px;
   font-family: 'Brandon Text', 'Josefin Sans', sans-serif;
 `;
 
-const TextboxNumberReviews = styled.section`
+const TextboxNumberReviews = styled.span`
   display: inline-flex;  
   font-size: 12px;
   vertical-align: text-top;
@@ -132,10 +132,34 @@ const TextboxNumberReviews = styled.section`
   font-family: 'Brandon Text', 'Josefin Sans', sans-serif;
 `;
 
-const ReviewReportDiv = styled.section`
+const ReviewReportDiv = styled.div`
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
   height: 32px;
   font-family: 'Brandon Text', 'Josefin Sans', sans-serif;
 `;
+
+const ReviewReportContainer = styled.div`
+  display: inline-flex;
+  justify-content: space-between;
+  margin-left: 4px;
+  font-size: 14px;
+  color: #6F737B;
+  font-family: 'Brandon Text', 'Josefin Sans', sans-serif;
+`;
+
+const ReviewReadMore = styled.div`
+  display: inline-flex;
+  justify-content: space-between;
+  height: 24px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  font-size: 16px;
+  color: #DA4743;
+  font-family: 'Brandon Text', 'Josefin Sans', sans-serif;
+`;
+
 
 class ReviewEntry extends React.Component {
   constructor(props) {
@@ -149,86 +173,53 @@ class ReviewEntry extends React.Component {
     const dateFormat = moment(dateOfReview).format('MMMM Do YYYY');
 
     return (
-      <MainDiv>
-      <div> 
-       
+      <MainDiv> 
        <FlexDiv>
-        <div>
+
           <UserDiv>
-          <div>
-            <InitialsCircle>
-            
-            <div>
-              {this.props.review.user_initials}
-            </div>
-            </InitialsCircle>
+
+            <InitialsCircle>{this.props.review.user_initials}</InitialsCircle>
+            <Username>{this.props.review.user}</Username>
+            <UserLocation>{this.props.review.location}</UserLocation>
             <Username>
-            <div>
-              {this.props.review.user}
-            </div>
-            </Username>
-            <UserLocation>
-            <div>
-              {this.props.review.location}
-            </div>
-            </UserLocation>
-            <Username>
-            <div>
               <span><img src={textbox} alt="textbox icon"/></span>
-              <TextboxNumberReviews><span>{this.props.review.total_reviews} Reviews</span></TextboxNumberReviews>
-            </div>
+              <TextboxNumberReviews>{this.props.review.total_reviews} Reviews</TextboxNumberReviews>
             </Username>
-          </div>
+  
           </UserDiv>
-        </div>
 
-        <div>
           <ReviewDiv>
-          <div>
 
             <div>
-              <span> <StarRatings rating={this.props.review.overall} starDimension="16px" starSpacing="1px" starRatedColor='#DA3743'/></span>
-              <span><ReviewDot></ReviewDot></span>
-              <span><ReviewDate>{dateDifference <= 1 ? `Dined a day ago` : dateDifference <= 7 ? `Dined ${dateDifference} days ago` : `Dined on ${dateFormat}`}</ReviewDate></span>
+              <span><StarRatings rating={this.props.review.overall} starDimension="16px" starSpacing="1px" starRatedColor='#DA3743'/></span>
+              <ReviewDot></ReviewDot>
+              <ReviewDate>{dateDifference <= 1 ? `Dined a day ago` : dateDifference <= 7 ? `Dined ${dateDifference} days ago` : `Dined on ${dateFormat}`}</ReviewDate>
             </div>
 
             <ReviewPropertiesDiv>
-            <div>
-              <span><ReviewProperties>Overall</ReviewProperties> <ReviewNumericalRating>{this.props.review.overall}</ReviewNumericalRating></span> 
-              <span><ReviewDot></ReviewDot></span>
-              <span> <ReviewProperties>Food</ReviewProperties> <ReviewNumericalRating>{this.props.review.food}</ReviewNumericalRating></span>
-              <span><ReviewDot></ReviewDot></span>
-              <span> <ReviewProperties>Service</ReviewProperties> <ReviewNumericalRating>{this.props.review.service}</ReviewNumericalRating></span>
-              <span><ReviewDot></ReviewDot></span>
-              <span> <ReviewProperties>Ambience</ReviewProperties> <ReviewNumericalRating>{this.props.review.ambience}</ReviewNumericalRating></span>
-            </div>
+              <ReviewProperties>Overall</ReviewProperties> <ReviewNumericalRating>{this.props.review.overall}</ReviewNumericalRating>
+              <ReviewDot></ReviewDot>
+              <ReviewProperties>Food</ReviewProperties> <ReviewNumericalRating>{this.props.review.food}</ReviewNumericalRating>
+              <ReviewDot></ReviewDot>
+              <ReviewProperties>Service</ReviewProperties> <ReviewNumericalRating>{this.props.review.service}</ReviewNumericalRating>
+              <ReviewDot></ReviewDot>
+              <ReviewProperties>Ambience</ReviewProperties> <ReviewNumericalRating>{this.props.review.ambience}</ReviewNumericalRating>
             </ReviewPropertiesDiv>
             
-            <div>
-              <ReviewStyling>{this.props.review.review}</ReviewStyling>
-            </div>
-
+            <ReviewStyling>{this.props.review.review}</ReviewStyling>
+        
             <ReviewReportDiv>
-            <div>
-            <span><img src={report} alt="report icon"/></span>
-            </div>
+              <ReviewReadMore>+ Read more</ReviewReadMore>
+              <ReviewReportContainer><div><img src={reportIcon} alt="report icon"/>Report</div></ReviewReportContainer>
             </ReviewReportDiv>
           
-          </div>
           </ReviewDiv>
 
-        </div>
         </FlexDiv>
-
-      </div>
       </MainDiv>
-      
-
     )
   }
 }
 
 
 export default ReviewEntry;
-
-
