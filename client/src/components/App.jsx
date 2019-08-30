@@ -3,7 +3,7 @@ import ReviewList from './ReviewList.jsx';
 import axios from 'axios';
 import styled from 'styled-components';
 import { createGlobalStyle } from "styled-components";
-import brandonText from '../../../public/BrandonText-Regular.otf';
+// import brandonText from '../../../public/BrandonText-Regular.otf';
 
 
 const GlobalStyle = createGlobalStyle`
