@@ -14,7 +14,8 @@ CREATE TABLE Users (
   user_initials varchar(2) NOT NULL,
   initials_background varchar(20) NOT NULL,
   location TEXT NOT NULL,
-  vip BOOLEAN NOT NULL
+  vip BOOLEAN NOT NULL,
+  total_reviews INT NOT NULL
 );
 
 CREATE TABLE Reviews (
