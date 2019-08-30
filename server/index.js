@@ -22,7 +22,7 @@ app.get('/api/L1/reviews', (req, res) => {
       console.log(error);
       res.send(error);
     } else {
-      console.log('results: ', results);
+      // console.log('results: ', results);
       // let reviewQuery = `select * from reviews where restaurant_id = '${results[0].id}';`
       let joinQuery = `SELECT * FROM Users JOIN Reviews ON Reviews.restaurant_id= '${results[0].id}' AND Reviews.user_id=Users.id;`
       db.query(joinQuery, (error, results) => {
@@ -30,7 +30,6 @@ app.get('/api/L1/reviews', (req, res) => {
           console.log(error);
           res.send(error);
         } else {
-          console.log(results);
           res.send(results);
         }
       })
@@ -64,6 +63,3 @@ app.get('/api/:restaurantName/reviews', (req, res) => {
 app.listen(port, function() {
   console.log(`listening on port ${port}`);
 });
-
-// let joinQuery = `SELECT * FROM Users JOIN Reviews ON Reviews.restaurant_id= '${results[0].id}' AND Reviews.user_id=Users.id;`
-// SELECT * FROM Users JOIN Rev ON Rev.restaurant_id='1' AND Rev.user_id=Users.id;

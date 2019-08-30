@@ -42,6 +42,10 @@ const seedUsers = () => {
     if (getRandomIntInclusive(1, 10) > 7) {
       vipStatus = true;
     }
+    let randomTotalReviews = getRandomIntInclusive(1, 30);
+    if (getRandomIntInclusive(1, 10) > 7) {
+      randomTotalReviews = getRandomIntInclusive(31, 200);
+    }
 
     let input = "INSERT INTO Users set ?";
     let value = {
@@ -49,7 +53,8 @@ const seedUsers = () => {
       user_initials: initials,
       initials_background: randomInitialsBG,
       location: randomLocation, 
-      vip: vipStatus
+      vip: vipStatus,
+      total_reviews: randomTotalReviews
     };
 
     db.query(input, value, (error, results) => {
@@ -64,7 +69,7 @@ const seedUsers = () => {
 
 const seedReviews = () => {
   let noiseLevel = ['Quiet', 'Moderate', 'Energetic'];
-  for (var i = 1; i <= 2500; i++) {
+  for (var i = 1; i <= 5000; i++) {
     let randomUserID =  getRandomIntInclusive(1, 300);
     let randomReview = faker.lorem.paragraph();
     let randomFood = getRandomIntInclusive(1, 5);
@@ -75,6 +80,9 @@ const seedReviews = () => {
     let randomNoise = noiseLevel[getRandomIntInclusive(0, 2)];
     let recommend = faker.random.boolean();
     let randomDate = faker.date.past();
+    if (getRandomIntInclusive(1, 10) > 7) {
+      randomDate = faker.date.recent();
+    }
     let randomRestaurantID = getRandomIntInclusive(1, 100);
 
     let input = "INSERT INTO Reviews set ?";
