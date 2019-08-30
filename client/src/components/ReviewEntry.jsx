@@ -1,7 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
-import textbox from './textbox.png';
 import moment from 'moment';
+import StarRatings from 'react-star-ratings';
+import textbox from '../../../public/textbox.png';
+import report from '../../../public/Report2.png';
+
 
 
 const MainDiv = styled.section`
@@ -129,6 +132,11 @@ const TextboxNumberReviews = styled.section`
   font-family: 'Brandon Text', 'Josefin Sans', sans-serif;
 `;
 
+const ReviewReportDiv = styled.section`
+  height: 32px;
+  font-family: 'Brandon Text', 'Josefin Sans', sans-serif;
+`;
+
 class ReviewEntry extends React.Component {
   constructor(props) {
     super(props);
@@ -179,6 +187,7 @@ class ReviewEntry extends React.Component {
           <div>
 
             <div>
+              <span> <StarRatings rating={this.props.review.overall} starDimension="16px" starSpacing="1px" starRatedColor='#DA3743'/></span>
               <span><ReviewDot></ReviewDot></span>
               <span><ReviewDate>{dateDifference <= 1 ? `Dined a day ago` : dateDifference <= 7 ? `Dined ${dateDifference} days ago` : `Dined on ${dateFormat}`}</ReviewDate></span>
             </div>
@@ -198,6 +207,12 @@ class ReviewEntry extends React.Component {
             <div>
               <ReviewStyling>{this.props.review.review}</ReviewStyling>
             </div>
+
+            <ReviewReportDiv>
+            <div>
+            <span><img src={report} alt="report icon"/></span>
+            </div>
+            </ReviewReportDiv>
           
           </div>
           </ReviewDiv>
