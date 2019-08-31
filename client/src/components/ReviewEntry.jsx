@@ -123,6 +123,17 @@ const ReviewStyling = styled.p`
   font-family: 'Brandon Text', 'Josefin Sans', sans-serif;
 `;
 
+const ReviewStylingOverflow = styled.p`
+  overflow: hidden;
+  text-overflow: ellipsis;
+  height: 72px;
+  color: #2D333F;
+  font-size: 1rem;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-family: 'Brandon Text', 'Josefin Sans', sans-serif;
+`;
+
 const TextboxNumberReviews = styled.span`
   display: inline-flex;  
   font-size: 12px;
@@ -233,7 +244,7 @@ class ReviewEntry extends React.Component {
             
             {this.props.review.review.length < 200 ? 
             (<div> 
-              <ReviewStyling>{this.props.review.review.slice(0, 200)}</ReviewStyling> 
+              <ReviewStyling>{this.props.review.review}</ReviewStyling> 
 
               <ReviewReportDivAlternate>
                 <ReviewReportContainer><div><img src={reportIcon} alt="report icon"/>Report</div></ReviewReportContainer>
@@ -243,7 +254,7 @@ class ReviewEntry extends React.Component {
             (<div>
               {this.state.readMore === false ? 
               (<div>
-              <ReviewStyling>{this.props.review.review.slice(0, 200)}</ReviewStyling> 
+              <ReviewStylingOverflow>{this.props.review.review}</ReviewStylingOverflow> 
 
               <ReviewReportDiv>
                 <ReviewReadMore onClick={(e)=> this.handleReadMoreExpand(e)}>+ Read more</ReviewReadMore>
