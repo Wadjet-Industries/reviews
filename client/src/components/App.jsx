@@ -3,8 +3,6 @@ import ReviewList from './ReviewList.jsx';
 import axios from 'axios';
 import styled from 'styled-components';
 import { createGlobalStyle } from "styled-components";
-// import brandonText from '../../../public/BrandonText-Regular.otf';
-
 
 const GlobalStyle = createGlobalStyle`
   html {
@@ -12,14 +10,6 @@ const GlobalStyle = createGlobalStyle`
     font-family: 'Josefin Sans', sans-serif;
   }
 `;
-
-// const GlobalStyle = createGlobalStyle`
-//   @font-face {
-//     @import url('../../../public/BrandonText-Regular.otf');
-//     font-family: 'brandonText' format('opentype');
-//     src: url(${brandonText});
-//   }
-// `;
 
 class App extends React.Component {
   constructor(props) {
