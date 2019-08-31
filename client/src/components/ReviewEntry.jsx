@@ -26,18 +26,20 @@ const UserDiv = styled.div`
   margin-right: 16px;
 `;
 
-//#BB6ACD 
-//${this.props.review.initials_background.slice(0, this.props.review.initials_background.length)}
-
 const InitialsDiv = styled.div`
-  display: flex;
+  display: block;
+  width: 96px;
   justify-content: center;
   margin-bottom: 0.5rem;
 `;
 
+//#BB6ACD 
+//${this.props.review.initials_background.slice(0, this.props.review.initials_background.length)}
+
 const InitialsCircle = styled.div`
   display: flex;
   justify-content: center;
+  position: relative;
   background-color: #BB6ACD;
   align-items: center;
   height: 48px;
@@ -53,15 +55,18 @@ const InitialsCircle = styled.div`
 `;
 
 const UserVIP = styled.div`
-  display: block;
+  display: flex;
+  position: relative;
+  width: 20px;
   background-color: #FDAF08;
   padding: 2px 0.5rem;
   z-index: 2;
   font-size: 12px;
+  text-align: center;
   font-family: 'Brandon Text', 'Josefin Sans', sans-serif;
   border-radius: 1rem;
   font-weight: 700;
-  top: -2px;
+  top: 20px;
   color: #FFFFFF;
   left: 0;
 `;
