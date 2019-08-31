@@ -26,10 +26,20 @@ const UserDiv = styled.div`
   margin-right: 16px;
 `;
 
+//#BB6ACD 
+//${this.props.review.initials_background.slice(0, this.props.review.initials_background.length)}
+
+const InitialsDiv = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-bottom: 0.5rem;
+`;
+
 const InitialsCircle = styled.div`
   display: flex;
   justify-content: center;
   background-color: #BB6ACD;
+  align-items: center;
   height: 48px;
   width: 48px;
   border-radius: 50%;
@@ -42,6 +52,20 @@ const InitialsCircle = styled.div`
   font-family: 'Brandon Text', 'Josefin Sans', sans-serif;
 `;
 
+const UserVIP = styled.div`
+  display: block;
+  background-color: #FDAF08;
+  padding: 2px 0.5rem;
+  z-index: 2;
+  font-size: 12px;
+  font-family: 'Brandon Text', 'Josefin Sans', sans-serif;
+  border-radius: 1rem;
+  font-weight: 700;
+  top: -2px;
+  color: #FFFFFF;
+  left: 0;
+`;
+
 const Username = styled.div`
   text-align: center;
   margin: 0 auto;
@@ -50,6 +74,7 @@ const Username = styled.div`
   overflow-wrap: break-word;
   width: 80px;
   font-size: 14px;
+  font-weight: 500;
   color: #2D333F;
   font-family: 'Brandon Text', 'Josefin Sans', sans-serif;
 `;
@@ -63,6 +88,16 @@ const UserLocation= styled.div`
   width: 80px;
   font-size: 14px;
   color: #6F737B;
+  font-weight: 500;
+  font-family: 'Brandon Text', 'Josefin Sans', sans-serif;
+`;
+
+const TextboxNumberReviews = styled.span`
+  display: inline-flex;  
+  font-size: 12px;
+  vertical-align: text-top;
+  color: #6F737B;
+  font-weight: 500;
   font-family: 'Brandon Text', 'Josefin Sans', sans-serif;
 `;
 
@@ -134,14 +169,6 @@ const ReviewStylingOverflow = styled.p`
   font-family: 'Brandon Text', 'Josefin Sans', sans-serif;
 `;
 
-const TextboxNumberReviews = styled.span`
-  display: inline-flex;  
-  font-size: 12px;
-  vertical-align: text-top;
-  color: #6F737B;
-  font-family: 'Brandon Text', 'Josefin Sans', sans-serif;
-`;
-
 const ReviewReportDiv = styled.div`
   display: flex;
   width: 100%;
@@ -202,30 +229,38 @@ class ReviewEntry extends React.Component {
   }
 
   render () {
-
+    // console.log(`${this.props.review.initials_background.slice(0, this.props.review.initials_background.length)}`)
     const now = moment();
     const dateOfReview = `${this.props.review.date}`;
     const dateDifference = now.diff(dateOfReview, 'days');
     const dateFormat = moment(dateOfReview).format('MMMM Do YYYY');
 
+    // console.log(`${this.props.review.vip}`);
+
     return (
       <MainDiv> 
        <FlexDiv>
 
+         
           <UserDiv>
-
-            <InitialsCircle>{this.props.review.user_initials}</InitialsCircle>
+          {this.props.review.vip === 1 ? (<div>
+            <InitialsDiv>
+              <UserVIP>VIP</UserVIP>
+              <InitialsCircle>{this.props.review.user_initials}</InitialsCircle>
+            </InitialsDiv>
+            </div>) : 
+            (<div>
+              <InitialsCircle>{this.props.review.user_initials}</InitialsCircle>
+            </div>)}
             <Username>{this.props.review.user}</Username>
             <UserLocation>{this.props.review.location}</UserLocation>
             <Username>
               <span><img src={textbox} alt="textbox icon"/></span>
               <TextboxNumberReviews>{this.props.review.total_reviews} Reviews</TextboxNumberReviews>
             </Username>
-  
           </UserDiv>
 
           <ReviewDiv>
-
             <div>
               <span><StarRatings rating={this.props.review.overall} starDimension="16px" starSpacing="1px" starRatedColor='#DA3743'/></span>
               <ReviewDot></ReviewDot>
@@ -247,6 +282,7 @@ class ReviewEntry extends React.Component {
               <ReviewStyling>{this.props.review.review}</ReviewStyling> 
 
               <ReviewReportDivAlternate>
+              {/* <UserVIP>VIP</UserVIP> */}
                 <ReviewReportContainer><div><img src={reportIcon} alt="report icon"/>Report</div></ReviewReportContainer>
               </ReviewReportDivAlternate> 
             </div>): 
@@ -269,8 +305,7 @@ class ReviewEntry extends React.Component {
                   <ReviewReportContainer><div><img src={reportIcon} alt="report icon"/>Report</div></ReviewReportContainer>
                 </ReviewReportDiv> 
                 </div>)} 
-            </div>)}
-            
+            </div>)}    
           </ReviewDiv>
 
         </FlexDiv>
@@ -281,3 +316,26 @@ class ReviewEntry extends React.Component {
 
 
 export default ReviewEntry;
+
+
+{/* <UserDiv>
+{this.props.review.vip === true ? (<div>
+  <UserVIP>VIP</UserVIP>
+  <InitialsCircle>{this.props.review.user_initials}</InitialsCircle>
+  <Username>{this.props.review.user}</Username>
+  <UserLocation>{this.props.review.location}</UserLocation>
+  <Username>
+    <span><img src={textbox} alt="textbox icon"/></span>
+    <TextboxNumberReviews>{this.props.review.total_reviews} Reviews</TextboxNumberReviews>
+  </Username>
+  </div>) :
+  <div>
+    <InitialsCircle>{this.props.review.user_initials}</InitialsCircle>
+    <Username>{this.props.review.user}</Username>
+    <UserLocation>{this.props.review.location}</UserLocation>
+    <Username>
+      <span><img src={textbox} alt="textbox icon"/></span>
+      <TextboxNumberReviews>{this.props.review.total_reviews} Reviews</TextboxNumberReviews>
+    </Username>
+  </div>}
+</UserDiv> */}
