@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import moment from 'moment';
 import StarRatings from 'react-star-ratings';
 import textbox from '../../../public/textbox.png';
-import report from '../../../public/Report2.png';
 import reportIcon from '../../../public/reportIcon.png';
 
 
@@ -140,6 +139,14 @@ const ReviewReportDiv = styled.div`
   font-family: 'Brandon Text', 'Josefin Sans', sans-serif;
 `;
 
+const ReviewReportDivAlternate = styled.div`
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+  height: 32px;
+  font-family: 'Brandon Text', 'Josefin Sans', sans-serif;
+`;
+
 const ReviewReportContainer = styled.div`
   display: inline-flex;
   justify-content: space-between;
@@ -149,7 +156,7 @@ const ReviewReportContainer = styled.div`
   font-family: 'Brandon Text', 'Josefin Sans', sans-serif;
 `;
 
-const ReviewReadMore = styled.div`
+const ReviewReadMore = styled.a`
   display: inline-flex;
   justify-content: space-between;
   height: 24px;
@@ -158,13 +165,31 @@ const ReviewReadMore = styled.div`
   font-size: 16px;
   color: #DA4743;
   font-family: 'Brandon Text', 'Josefin Sans', sans-serif;
+  
+  :hover {
+    color: #DA4743;
+    cursor: pointer;
+    text-decoration: underline;
+  }
 `;
-
 
 class ReviewEntry extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      readMore: false
+    };
+    this.handleReadMoreExpand = this.handleReadMoreExpand.bind(this);
   }
+
+  handleReadMoreExpand(e) {
+    e.preventDefault();
+    this.setState((currentState) => ({
+      readMore: !currentState.readMore
+    }));
+
+  }
+
   render () {
 
     const now = moment();
@@ -206,13 +231,35 @@ class ReviewEntry extends React.Component {
               <ReviewProperties>Ambience</ReviewProperties> <ReviewNumericalRating>{this.props.review.ambience}</ReviewNumericalRating>
             </ReviewPropertiesDiv>
             
-            <ReviewStyling>{this.props.review.review}</ReviewStyling>
-        
-            <ReviewReportDiv>
-              <ReviewReadMore>+ Read more</ReviewReadMore>
-              <ReviewReportContainer><div><img src={reportIcon} alt="report icon"/>Report</div></ReviewReportContainer>
-            </ReviewReportDiv>
-          
+            {this.props.review.review.length < 200 ? 
+            (<div> 
+              <ReviewStyling>{this.props.review.review.slice(0, 200)}</ReviewStyling> 
+
+              <ReviewReportDivAlternate>
+                <ReviewReportContainer><div><img src={reportIcon} alt="report icon"/>Report</div></ReviewReportContainer>
+              </ReviewReportDivAlternate> 
+            </div>): 
+
+            (<div>
+              {this.state.readMore === false ? 
+              (<div>
+              <ReviewStyling>{this.props.review.review.slice(0, 200)}</ReviewStyling> 
+
+              <ReviewReportDiv>
+                <ReviewReadMore onClick={(e)=> this.handleReadMoreExpand(e)}>+ Read more</ReviewReadMore>
+                <ReviewReportContainer><div><img src={reportIcon} alt="report icon"/>Report</div></ReviewReportContainer>
+              </ReviewReportDiv> 
+              </div>) :
+              (<div>
+                <ReviewStyling>{this.props.review.review}</ReviewStyling> 
+
+                <ReviewReportDiv>
+                  <ReviewReadMore onClick={(e)=> this.handleReadMoreExpand(e)}>- Read less</ReviewReadMore>
+                  <ReviewReportContainer><div><img src={reportIcon} alt="report icon"/>Report</div></ReviewReportContainer>
+                </ReviewReportDiv> 
+                </div>)} 
+            </div>)}
+            
           </ReviewDiv>
 
         </FlexDiv>
