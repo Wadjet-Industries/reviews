@@ -16,10 +16,6 @@ module.exports = {
         test: /\.(png|woff|woff2|eot|ttf|svg|otf)$/,
         loader: 'url-loader?limit=100000'
       },
-      { 
-        test: /\.otf$/, 
-        loader: 'file-loader?prefix=fonts/' 
-      }
     ]
   },
    output: {
