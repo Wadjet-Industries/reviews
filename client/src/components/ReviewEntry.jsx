@@ -33,27 +33,6 @@ const InitialsDiv = styled.div`
   margin-bottom: 0.5rem;
 `;
 
-//#BB6ACD 
-//${this.props.review.initials_background.slice(0, this.props.review.initials_background.length)}
-
-const InitialsCircle = styled.div`
-  display: flex;
-  justify-content: center;
-  position: relative;
-  background-color: #BB6ACD;
-  align-items: center;
-  height: 48px;
-  width: 48px;
-  border-radius: 50%;
-  color: #FFFFFF;
-  text-align: center;
-  vertical-align: middle;
-  line-height:3em;
-  margin: 0 auto;
-  font-size: 16px;
-  font-family: 'Brandon Text', 'Josefin Sans', sans-serif;
-`;
-
 const UserVIP = styled.div`
   display: flex;
   position: relative;
@@ -63,7 +42,7 @@ const UserVIP = styled.div`
   z-index: 2;
   font-size: 12px;
   text-align: center;
-  font-family: 'Brandon Text', 'Josefin Sans', sans-serif;
+  font-family: 'BrandonTextMedium', 'Josefin Sans', sans-serif;
   border-radius: 1rem;
   font-weight: 700;
   top: 20px;
@@ -81,7 +60,7 @@ const Username = styled.div`
   font-size: 14px;
   font-weight: 500;
   color: #2D333F;
-  font-family: 'Brandon Text', 'Josefin Sans', sans-serif;
+  font-family: 'BrandonTextMedium', 'Josefin Sans', sans-serif;
 `;
 
 const UserLocation= styled.div`
@@ -94,7 +73,7 @@ const UserLocation= styled.div`
   font-size: 14px;
   color: #6F737B;
   font-weight: 500;
-  font-family: 'Brandon Text', 'Josefin Sans', sans-serif;
+  font-family: 'BrandonTextMedium', 'Josefin Sans', sans-serif;
 `;
 
 const TextboxNumberReviews = styled.span`
@@ -103,7 +82,7 @@ const TextboxNumberReviews = styled.span`
   vertical-align: text-top;
   color: #6F737B;
   font-weight: 500;
-  font-family: 'Brandon Text', 'Josefin Sans', sans-serif;
+  font-family: 'BrandonTextMedium', 'Josefin Sans', sans-serif;
 `;
 
 //Review Div
@@ -119,12 +98,12 @@ const ReviewDate = styled.span`
   margin-left: 4px;
   margin-right: 4px;
   font-weight: 400;
-  font-family: 'Brandon Text', 'Josefin Sans', sans-serif;
+  font-family: 'BrandonTextRegular', 'Josefin Sans', sans-serif;
 `;
 
 const ReviewPropertiesDiv = styled.div`
   margin-above: 8px;
-  font-family: 'Brandon Text', 'Josefin Sans', sans-serif;
+  font-family: 'BrandonTextMedium', 'Josefin Sans', sans-serif;
 `;
 
 const ReviewDot = styled.div`
@@ -134,7 +113,6 @@ const ReviewDot = styled.div`
   border-radius: 50%;
   background: #2D333F;
   margin: 4px;
-  font-family: 'Brandon Text', 'Josefin Sans', sans-serif;
 `;
 
 const ReviewNumericalRating = styled.span`
@@ -142,7 +120,7 @@ const ReviewNumericalRating = styled.span`
   font-weight: bold;
   color: #DA3743;
   font-size: 14px;
-  font-family: 'Brandon Text', 'Josefin Sans', sans-serif;
+  font-family: 'BrandonTextMedium', 'Josefin Sans', sans-serif;
   margin-right: 2px;
 `;
 
@@ -152,7 +130,7 @@ const ReviewProperties = styled.span`
   color: #2D333F;
   margin-right: 8px;
   font-size: 14px;
-  font-family: 'Brandon Text', 'Josefin Sans', sans-serif;
+  font-family: 'BrandonTextMedium', 'Josefin Sans', sans-serif;
 `;
 
 const ReviewStyling = styled.p`
@@ -160,7 +138,7 @@ const ReviewStyling = styled.p`
   font-size: 1rem;
   margin-top: 10px;
   margin-bottom: 10px;
-  font-family: 'Brandon Text', 'Josefin Sans', sans-serif;
+  font-family: 'BrandonTextRegular', 'Josefin Sans', sans-serif;
 `;
 
 const ReviewStylingOverflow = styled.p`
@@ -171,7 +149,7 @@ const ReviewStylingOverflow = styled.p`
   font-size: 1rem;
   margin-top: 10px;
   margin-bottom: 10px;
-  font-family: 'Brandon Text', 'Josefin Sans', sans-serif;
+  font-family: 'BrandonTextRegular', 'Josefin Sans', sans-serif;
 `;
 
 const ReviewReportDiv = styled.div`
@@ -179,7 +157,7 @@ const ReviewReportDiv = styled.div`
   width: 100%;
   justify-content: space-between;
   height: 32px;
-  font-family: 'Brandon Text', 'Josefin Sans', sans-serif;
+  font-family: 'BrandonTextRegular', 'Josefin Sans', sans-serif;
 `;
 
 const ReviewReportDivAlternate = styled.div`
@@ -187,7 +165,7 @@ const ReviewReportDivAlternate = styled.div`
   width: 100%;
   justify-content: flex-end;
   height: 32px;
-  font-family: 'Brandon Text', 'Josefin Sans', sans-serif;
+  font-family: 'BrandonTextRegular', 'Josefin Sans', sans-serif;
 `;
 
 const ReviewReportContainer = styled.div`
@@ -196,7 +174,7 @@ const ReviewReportContainer = styled.div`
   margin-left: 4px;
   font-size: 14px;
   color: #6F737B;
-  font-family: 'Brandon Text', 'Josefin Sans', sans-serif;
+  font-family: 'BrandonTextRegular', 'Josefin Sans', sans-serif;
 `;
 
 const ReviewReadMore = styled.a`
@@ -207,7 +185,7 @@ const ReviewReadMore = styled.a`
   padding-bottom: 4px;
   font-size: 16px;
   color: #DA4743;
-  font-family: 'Brandon Text', 'Josefin Sans', sans-serif;
+  font-family: 'BrandonTextRegular', 'Josefin Sans', sans-serif;
   
   :hover {
     color: #DA4743;
@@ -234,13 +212,29 @@ class ReviewEntry extends React.Component {
   }
 
   render () {
-    // console.log(`${this.props.review.initials_background.slice(0, this.props.review.initials_background.length)}`)
+
+    const InitialsCircle = styled.div`
+      display: flex;
+      justify-content: center;
+      position: relative;
+      background-color: ${this.props.review.initials_background};
+      align-items: center;
+      height: 48px;
+      width: 48px;
+      border-radius: 50%;
+      color: #FFFFFF;
+      text-align: center;
+      line-height:3em;
+      margin: 0 auto;
+      font-size: 16px;
+      top: 0px;
+      font-family: 'BrandonTextRegular', 'Josefin Sans', sans-serif;
+    `;
+
     const now = moment();
     const dateOfReview = `${this.props.review.date}`;
     const dateDifference = now.diff(dateOfReview, 'days');
     const dateFormat = moment(dateOfReview).format('MMMM Do YYYY');
-
-    // console.log(`${this.props.review.vip}`);
 
     return (
       <MainDiv> 
@@ -287,7 +281,6 @@ class ReviewEntry extends React.Component {
               <ReviewStyling>{this.props.review.review}</ReviewStyling> 
 
               <ReviewReportDivAlternate>
-              {/* <UserVIP>VIP</UserVIP> */}
                 <ReviewReportContainer><div><img src={reportIcon} alt="report icon"/>Report</div></ReviewReportContainer>
               </ReviewReportDivAlternate> 
             </div>): 
@@ -309,7 +302,7 @@ class ReviewEntry extends React.Component {
                   <ReviewReadMore onClick={(e)=> this.handleReadMoreExpand(e)}>- Read less</ReviewReadMore>
                   <ReviewReportContainer><div><img src={reportIcon} alt="report icon"/>Report</div></ReviewReportContainer>
                 </ReviewReportDiv> 
-                </div>)} 
+              </div>)} 
             </div>)}    
           </ReviewDiv>
 
@@ -319,28 +312,4 @@ class ReviewEntry extends React.Component {
   }
 }
 
-
 export default ReviewEntry;
-
-
-{/* <UserDiv>
-{this.props.review.vip === true ? (<div>
-  <UserVIP>VIP</UserVIP>
-  <InitialsCircle>{this.props.review.user_initials}</InitialsCircle>
-  <Username>{this.props.review.user}</Username>
-  <UserLocation>{this.props.review.location}</UserLocation>
-  <Username>
-    <span><img src={textbox} alt="textbox icon"/></span>
-    <TextboxNumberReviews>{this.props.review.total_reviews} Reviews</TextboxNumberReviews>
-  </Username>
-  </div>) :
-  <div>
-    <InitialsCircle>{this.props.review.user_initials}</InitialsCircle>
-    <Username>{this.props.review.user}</Username>
-    <UserLocation>{this.props.review.location}</UserLocation>
-    <Username>
-      <span><img src={textbox} alt="textbox icon"/></span>
-      <TextboxNumberReviews>{this.props.review.total_reviews} Reviews</TextboxNumberReviews>
-    </Username>
-  </div>}
-</UserDiv> */}

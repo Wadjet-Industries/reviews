@@ -3,11 +3,32 @@ import ReviewList from './ReviewList.jsx';
 import axios from 'axios';
 import styled from 'styled-components';
 import { createGlobalStyle } from "styled-components";
+import ReviewSummary from './ReviewSummary.jsx';
+import BrandonTextRegular from '../../../public/Fonts/BrandonText-Regular.otf';
+import BrandonTextLight from '../../../public/Fonts/BrandonText-Light.otf';
+import BrandonTextMedium from '../../../public/Fonts/BrandonText-Medium.otf';
+import BrandonTextBold from '../../../public/Fonts/BrandonText-Bold.otf';
 
 const GlobalStyle = createGlobalStyle`
   html {
     @import url('https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap');
     font-family: 'Josefin Sans', sans-serif;
+  }
+  @font-face {
+    font-family: BrandonTextRegular;
+    src: url('${BrandonTextRegular}') format('opentype');
+  }
+  @font-face {
+    font-family: BrandonTextLight;
+    src: url('${BrandonTextLight}') format('opentype');
+  }
+  @font-face {
+    font-family: BrandonTextMedium;
+    src: url('${BrandonTextMedium}') format('opentype');
+  }
+  @font-face {
+    font-family: BrandonTextBold;
+    src: url('${BrandonTextBold}') format('opentype');
   }
 `;
 
@@ -15,8 +36,82 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      reviews: []
+      reviews: [],
+      overallSummaryObj: {
+        numberOfResterauntReviews: 0,
+        users: 0,
+        overallRating: 5,
+        overallFoodRating: 5, 
+        overallServiceRating: 5,
+        overallAmbienceRating: 5,
+        overallValueRating: 5,
+        overallNoiseLevel: 'Quiet',
+        percentWouldRecommend: 100
+      }
     }
+
+    this.filterReviews = this.filterReviews.bind(this);
+  }
+
+  filterReviews() {
+    const userReviews = [];
+    let numberOfReviews = this.state.reviews.length;
+    let sumOverall = 0;
+    let sumFood = 0;
+    let sumAmbience = 0;
+    let sumService = 0;
+    let sumValue = 0;
+    let noiseQuiet = 0;
+    let noiseModerate = 0;
+    let noiseEnergetic = 0;
+    let averageNoiseLevel= '';
+    let percentageRecommendationSum = 0;
+
+
+    this.state.reviews.forEach(review => {
+      sumOverall += review.overall;
+      sumFood += review.food;
+      sumAmbience += review.ambience;
+      sumService += review.service;
+      sumValue += review.value;
+      percentageRecommendationSum += review.would_recommend;
+      if (!userReviews.includes(review.user)) {
+        userReviews.push(review.user);
+      }
+      if (review.noise === 'Quiet') {
+        noiseQuiet++;
+      } else if (review.noise === 'Moderate') {
+        noiseModerate++;
+      } else if (review.noise === 'Energetic') {
+        noiseEnergetic++;
+      } 
+    });
+
+    let reviewSummaryStars = sumOverall/numberOfReviews;
+    let percentageRecommendation = parseInt((percentageRecommendationSum/numberOfReviews)*100);
+    let maxNoiseLevel = Math.max(noiseQuiet, noiseModerate, noiseEnergetic);
+    if (noiseEnergetic === maxNoiseLevel) {
+      averageNoiseLevel = 'Energetic';
+    } else if (noiseModerate === maxNoiseLevel) {
+      averageNoiseLevel = 'Moderate';
+    } else {
+      averageNoiseLevel = 'Quiet';
+    }
+
+    this.setState({
+      reviews: this.state.reviews,
+      overallSummaryObj: {
+        numberOfResterauntReviews: numberOfReviews, 
+        users: userReviews.length,
+        overallRating: reviewSummaryStars,
+        overallFoodRating: (sumFood/numberOfReviews).toFixed(1), 
+        overallServiceRating: (sumService/numberOfReviews).toFixed(1),
+        overallAmbienceRating: (sumAmbience/numberOfReviews).toFixed(1),
+        overallValueRating: (sumValue/numberOfReviews).toFixed(1),
+        overallNoiseLevel: averageNoiseLevel,
+        percentWouldRecommend: percentageRecommendation
+      }
+    });
   }
 
   getReviews() {
@@ -25,7 +120,7 @@ class App extends React.Component {
       // console.log('response: ', response.data);
       this.setState({
         reviews: response.data
-      })
+      }, this.filterReviews)
     })
     .catch(function (error) {
       console.log(error);
@@ -40,7 +135,12 @@ class App extends React.Component {
     return (
       <div>
         <GlobalStyle />
-        <ReviewList reviews={this.state.reviews} />
+        {this.state.reviews.length === 0 ? <div></div> : 
+        <div>
+          <ReviewSummary overallSummary={this.state.overallSummaryObj}/>
+          <ReviewList reviews={this.state.reviews} />
+        </div>
+        }
       </div>
     );
   }
