@@ -31,6 +31,7 @@
     "parser": "^0.1.4",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
+    "react-paginate": "^6.3.0",
     "react-star-ratings": "^2.3.0",
     "styled-components": "^5.0.0-beta.8",
     "webpack": "^4.39.2",
@@ -45,7 +46,6 @@
     "@babel/preset-react": "^7.0.0",
     "babel-loader": "^8.0.6",
     "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor",
-    "file-loader": "^4.2.0",
     "url-loader": "^2.1.0"
   }
 }

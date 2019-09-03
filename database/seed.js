@@ -76,9 +76,17 @@ const seedReviews = () => {
     let randomService = getRandomIntInclusive(1, 5);
     let randomAmbience = getRandomIntInclusive(1, 5);
     let randomValue = getRandomIntInclusive(1, 5);
+    if(randomFood >=4) {
+      randomService = getRandomIntInclusive(4, 5);
+      randomAmbience = getRandomIntInclusive(4, 5);
+      randomValue = getRandomIntInclusive(4, 5);
+    }
     let overallAverage = (randomFood + randomService +randomAmbience + randomValue) / 4;
     let randomNoise = noiseLevel[getRandomIntInclusive(0, 2)];
     let recommend = faker.random.boolean();
+    if (overallAverage >=4) {
+      recommend = 1;
+    }
     let randomDate = faker.date.past();
     if (getRandomIntInclusive(1, 10) > 7) {
       randomDate = faker.date.recent();

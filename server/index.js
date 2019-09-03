@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 const db = require('../database/index.js');
 const path = require('path');
 
-const port = 3000;
+const port = 3003;
 
 app.use(express.static(path.join(__dirname,  '../public')));
 

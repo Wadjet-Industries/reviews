@@ -8,6 +8,7 @@ import BrandonTextRegular from '../../../public/Fonts/BrandonText-Regular.otf';
 import BrandonTextLight from '../../../public/Fonts/BrandonText-Light.otf';
 import BrandonTextMedium from '../../../public/Fonts/BrandonText-Medium.otf';
 import BrandonTextBold from '../../../public/Fonts/BrandonText-Bold.otf';
+import ReactPaginate from 'react-paginate';
 
 const GlobalStyle = createGlobalStyle`
   html {
@@ -30,6 +31,22 @@ const GlobalStyle = createGlobalStyle`
     font-family: BrandonTextBold;
     src: url('${BrandonTextBold}') format('opentype');
   }
+`;
+
+const ReviewPageDiv = styled.div`
+  display: flex;
+  width: 608px;
+  justify-content: center;
+  color: #DA3743;
+  font-family: 'BrandonTextRegular', 'Josefin Sans', sans-serif;
+`;
+
+const ReviewPageNext = styled.div`
+  display: flex;
+  width: 608px;
+  justify-content: center;
+  color: #FDAF08;
+  font-family: 'BrandonTextRegular', 'Josefin Sans', sans-serif;
 `;
 
 class App extends React.Component {
@@ -139,6 +156,21 @@ class App extends React.Component {
         <div>
           <ReviewSummary overallSummary={this.state.overallSummaryObj}/>
           <ReviewList reviews={this.state.reviews} />
+          <ReviewPageDiv>
+          <ReactPaginate
+          previousLabel={'previous'}
+          nextLabel={'next'}
+          breakLabel={'...'}
+          breakClassName={'break-me'}
+          pageCount={this.state.pageCount}
+          marginPagesDisplayed={1}
+          pageRangeDisplayed={3}
+          onPageChange={this.handlePageClick}
+          containerClassName={'pagination'}
+          subContainerClassName={'pages pagination'}
+          activeClassName={'active'}
+        />
+         </ReviewPageDiv>
         </div>
         }
       </div>

@@ -35,7 +35,6 @@ const SummaryLeft = styled.div`
   width: 352px;
   display: block;
   font-family: 'BrandonTextRegular', 'Josefin Sans', sans-serif;
-
 `;
 
 const SummaryOverall = styled.div`
