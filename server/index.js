@@ -42,18 +42,18 @@ app.get('/api/L1/reviews', (req, res) => {
   });
 });
 
-
 app.get('/api/:restaurantName/reviews', (req, res) => {
   let input = `select id from restaurants where name='${req.params.restaurantName}';`;
-  // console.log('req.params: ', req.params);
-  db.query(input, (error, results, fields) => {
+
+  db.query(input, (error, results) => {
     if (error) {
       console.log(error);
       res.send(error);
     } else {
-      console.log('results: ', results);
-      let reviewQuery = `select * from reviews where restaurant_id = '${results[0].id}';`
-      db.query(reviewQuery, (error, results, fields) => {
+      // console.log('results: ', results);
+      // let reviewQuery = `select * from reviews where restaurant_id = '${results[0].id}';`
+      let joinQuery = `SELECT * FROM Users JOIN Reviews ON Reviews.restaurant_id= '${results[0].id}' AND Reviews.user_id=Users.id;`
+      db.query(joinQuery, (error, results) => {
         if (error) {
           console.log(error);
           res.send(error);
