@@ -33,7 +33,7 @@
     "react-dom": "^16.9.0",
     "react-paginate": "^6.3.0",
     "react-star-ratings": "^2.3.0",
-    "styled-components": "^5.0.0-beta.8",
+    "styled-components": "^4.3.2",
     "webpack": "^4.39.2",
     "webpack-cli": "^3.3.7",
     "whatwg-fetch": "^3.0.0"

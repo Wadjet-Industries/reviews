@@ -1,8 +1,6 @@
 import React from 'react';
 import ReviewList from './ReviewList.jsx';
 import axios from 'axios';
-import styled from 'styled-components';
-import { createGlobalStyle } from "styled-components";
 import ReviewSummary from './ReviewSummary.jsx';
 import BrandonTextRegular from '../../../public/Fonts/BrandonText-Regular.otf';
 import BrandonTextLight from '../../../public/Fonts/BrandonText-Light.otf';
@@ -10,7 +8,7 @@ import BrandonTextMedium from '../../../public/Fonts/BrandonText-Medium.otf';
 import BrandonTextBold from '../../../public/Fonts/BrandonText-Bold.otf';
 import ReactPaginate from 'react-paginate';
 
-const GlobalStyle = createGlobalStyle`
+const GlobalStyle = styled.createGlobalStyle`
   html {
     @import url('https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap');
     font-family: 'Josefin Sans', sans-serif;
@@ -33,7 +31,7 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
-const ReviewPageDiv = styled.div`
+const ReviewPageDiv = window.styled.div`
   display: flex;
   width: 608px;
   justify-content: center;
@@ -41,7 +39,7 @@ const ReviewPageDiv = styled.div`
   font-family: 'BrandonTextRegular', 'Josefin Sans', sans-serif;
 `;
 
-const ReviewPageNext = styled.div`
+const ReviewPageNext = window.styled.div`
   display: flex;
   width: 608px;
   justify-content: center;
@@ -132,7 +130,7 @@ class App extends React.Component {
   }
 
   getReviews() {
-    axios.get('/api/L1/reviews')
+    axios.get('http://localhost:3003/api/L1/reviews')
     .then((response) => {
       // console.log('response: ', response.data);
       this.setState({
