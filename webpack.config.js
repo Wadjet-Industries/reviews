@@ -1,9 +1,9 @@
 module.exports = {
-  entry: __dirname + '/client/src/index.jsx',
+  entry: __dirname + '/client/src/components/App.jsx',
   module: {
     rules: [
       {
-        test: [/\.jsx$/],
+        test: [/\.(js|jsx)$/],
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
@@ -20,7 +20,8 @@ module.exports = {
   },
    output: {
     filename: 'bundle.js',
-    path: __dirname + '/public'
+    path: __dirname + '/public',
+    library: 'Reviews'
   }
 };
 

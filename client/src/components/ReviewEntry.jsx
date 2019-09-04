@@ -1,39 +1,38 @@
 import React from 'react';
-import styled from 'styled-components';
 import moment from 'moment';
 import StarRatings from 'react-star-ratings';
 import textbox from '../../../public/textbox.png';
 import reportIcon from '../../../public/reportIcon.png';
 
 
-const MainDiv = styled.div`
+const MainDiv = window.styled.div`
   width: 608px;
   border-bottom: 1px solid #D3D3D3;
   padding-top: 16px;
   padding-bottom: 16px;
 `;
 
-const FlexDiv = styled.div`
+const FlexDiv = window.styled.div`
   display: flex;
 `;
 
 //User Div
 
-const UserDiv = styled.div`
+const UserDiv = window.styled.div`
   display: block;
   width: 96px;
   margin-left: 16px;
   margin-right: 16px;
 `;
 
-const InitialsDiv = styled.div`
+const InitialsDiv = window.styled.div`
   display: block;
   width: 96px;
   justify-content: center;
   margin-bottom: 0.5rem;
 `;
 
-const UserVIP = styled.div`
+const UserVIP = window.styled.div`
   display: flex;
   position: relative;
   width: 20px;
@@ -50,7 +49,7 @@ const UserVIP = styled.div`
   left: 0;
 `;
 
-const Username = styled.div`
+const Username = window.styled.div`
   text-align: center;
   margin: 0 auto;
   margin-top: 5px;
@@ -63,7 +62,7 @@ const Username = styled.div`
   font-family: 'BrandonTextMedium', 'Josefin Sans', sans-serif;
 `;
 
-const UserLocation= styled.div`
+const UserLocation= window.styled.div`
   text-align: center;
   margin: 0 auto;
   margin-top: 5px;
@@ -76,7 +75,7 @@ const UserLocation= styled.div`
   font-family: 'BrandonTextMedium', 'Josefin Sans', sans-serif;
 `;
 
-const TextboxNumberReviews = styled.span`
+const TextboxNumberReviews = window.styled.span`
   display: inline-flex;  
   font-size: 12px;
   vertical-align: text-top;
@@ -87,11 +86,11 @@ const TextboxNumberReviews = styled.span`
 
 //Review Div
 
-const ReviewDiv = styled.div`
+const ReviewDiv = window.styled.div`
   display: block;
 `;
 
-const ReviewDate = styled.span`
+const ReviewDate = window.styled.span`
   display: inline-flex;  
   color: #2D333F;
   font-size: 14px;
@@ -101,12 +100,12 @@ const ReviewDate = styled.span`
   font-family: 'BrandonTextRegular', 'Josefin Sans', sans-serif;
 `;
 
-const ReviewPropertiesDiv = styled.div`
+const ReviewPropertiesDiv = window.styled.div`
   margin-above: 8px;
   font-family: 'BrandonTextMedium', 'Josefin Sans', sans-serif;
 `;
 
-const ReviewDot = styled.div`
+const ReviewDot = window.styled.div`
   display: inline-flex;
   height: 3px;
   width: 3px;
@@ -115,7 +114,7 @@ const ReviewDot = styled.div`
   margin: 4px;
 `;
 
-const ReviewNumericalRating = styled.span`
+const ReviewNumericalRating = window.styled.span`
   display: inline-flex;
   font-weight: bold;
   color: #DA3743;
@@ -124,7 +123,7 @@ const ReviewNumericalRating = styled.span`
   margin-right: 2px;
 `;
 
-const ReviewProperties = styled.span`
+const ReviewProperties = window.styled.span`
   display: inline-flex;
   font-weight: bold;
   color: #2D333F;
@@ -133,7 +132,7 @@ const ReviewProperties = styled.span`
   font-family: 'BrandonTextMedium', 'Josefin Sans', sans-serif;
 `;
 
-const ReviewStyling = styled.p`
+const ReviewStyling = window.styled.p`
   color: #2D333F;
   font-size: 1rem;
   margin-top: 10px;
@@ -141,7 +140,7 @@ const ReviewStyling = styled.p`
   font-family: 'BrandonTextRegular', 'Josefin Sans', sans-serif;
 `;
 
-const ReviewStylingOverflow = styled.p`
+const ReviewStylingOverflow = window.styled.p`
   overflow: hidden;
   text-overflow: ellipsis;
   height: 72px;
@@ -152,7 +151,7 @@ const ReviewStylingOverflow = styled.p`
   font-family: 'BrandonTextRegular', 'Josefin Sans', sans-serif;
 `;
 
-const ReviewReportDiv = styled.div`
+const ReviewReportDiv = window.styled.div`
   display: flex;
   width: 100%;
   justify-content: space-between;
@@ -160,7 +159,7 @@ const ReviewReportDiv = styled.div`
   font-family: 'BrandonTextRegular', 'Josefin Sans', sans-serif;
 `;
 
-const ReviewReportDivAlternate = styled.div`
+const ReviewReportDivAlternate = window.styled.div`
   display: flex;
   width: 100%;
   justify-content: flex-end;
@@ -168,7 +167,7 @@ const ReviewReportDivAlternate = styled.div`
   font-family: 'BrandonTextRegular', 'Josefin Sans', sans-serif;
 `;
 
-const ReviewReportContainer = styled.div`
+const ReviewReportContainer = window.styled.div`
   display: inline-flex;
   justify-content: space-between;
   margin-left: 4px;
@@ -177,7 +176,7 @@ const ReviewReportContainer = styled.div`
   font-family: 'BrandonTextRegular', 'Josefin Sans', sans-serif;
 `;
 
-const ReviewReadMore = styled.a`
+const ReviewReadMore = window.styled.a`
   display: inline-flex;
   justify-content: space-between;
   height: 24px;
