@@ -130,7 +130,12 @@ class App extends React.Component {
   }
 
   getReviews() {
-    axios.get('http://localhost:3003/api/L1/reviews')
+    let path = window.location.pathname.split('/')[1];
+    if(Number(path.slice(1)) <= 0 || Number(path.slice(1)) > 100) {
+      path = 'L1';
+    }
+
+    axios.get(`http://localhost:3003/api/${path}/reviews`)
     .then((response) => {
       // console.log('response: ', response.data);
       this.setState({
