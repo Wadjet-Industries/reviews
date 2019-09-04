@@ -1,21 +1,20 @@
 import React from 'react';
-import styled from 'styled-components';
 import StarRatings from 'react-star-ratings';
 import noiseIcon from '../../../public/noiseIcon.png';
 import recommendIcon from '../../../public/recommendIcon.png';
 
-const SummaryMainDiv = styled.div`
+const SummaryMainDiv = window.styled.div`
   display: block;
   width: 608px;
   padding-bottom: 2rem;
 `;
 
-const SummaryInsideDiv = styled.div`
+const SummaryInsideDiv = window.styled.div`
   display: flex;
   width: 608px;
 `;
 
-const SummaryUserReviews = styled.div`
+const SummaryUserReviews = window.styled.div`
   font-size: 1.5rem;
   font-weight: bold;
   line-height: 1.33;
@@ -31,13 +30,13 @@ const SummaryUserReviews = styled.div`
 
 //Left Side of Summary Review
 
-const SummaryLeft = styled.div`
+const SummaryLeft = window.styled.div`
   width: 352px;
   display: block;
   font-family: 'BrandonTextRegular', 'Josefin Sans', sans-serif;
 `;
 
-const SummaryOverall = styled.div`
+const SummaryOverall = window.styled.div`
   width: 352px;
   display: block;
   font-size: 16px;
@@ -47,7 +46,7 @@ const SummaryOverall = styled.div`
   font-family: 'BrandonTextMedium', 'Josefin Sans', sans-serif;
 `;
 
-const SummaryReviewDisclaimer = styled.div`
+const SummaryReviewDisclaimer = window.styled.div`
   width: 352px;
   display: block;
   font-size: 16px;
@@ -57,7 +56,7 @@ const SummaryReviewDisclaimer = styled.div`
   font-family: 'BrandonTextRegular', 'Josefin Sans', sans-serif;
 `;
 
-const SummaryStarRatingDiv = styled.div`
+const SummaryStarRatingDiv = window.styled.div`
   display: inline-flex;
   padding-top: 0.5rem;
   padding-bottom: 1rem;
@@ -70,7 +69,7 @@ const SummaryStarRatingDiv = styled.div`
   font-family: 'BrandonTextMedium', 'Josefin Sans', sans-serif;
 `;
 
-const SummaryReviewRecentRatings = styled.span`
+const SummaryReviewRecentRatings = window.styled.span`
   display: flex;
   font-size: 14px;
   color: #2D333F;
@@ -79,18 +78,18 @@ const SummaryReviewRecentRatings = styled.span`
   font-weight: 500;
 `;
 
-const SummaryRatingsOuterDiv = styled.div`
+const SummaryRatingsOuterDiv = window.styled.div`
   display: flex;
   width: 60.52px;
   height: 39px
 `;
 
-const SummaryRatingsDiv = styled.div`
+const SummaryRatingsDiv = window.styled.div`
   display: flex;
   justify-content: space-evenly;
 `;
 
-const SummaryRatingsPropertiesDiv = styled.div`
+const SummaryRatingsPropertiesDiv = window.styled.div`
   display: flex;
   flex-direction: column;
   list-style: none;
@@ -100,7 +99,7 @@ const SummaryRatingsPropertiesDiv = styled.div`
   border-right: 1px solid #D3D3D3;
 `;
 
-const SummaryRatingsLastPropertyDiv = styled.div`
+const SummaryRatingsLastPropertyDiv = window.styled.div`
   display: flex;
   flex-direction: column;
   list-style: none;
@@ -109,7 +108,7 @@ const SummaryRatingsLastPropertyDiv = styled.div`
   text-align: center;
 `;
 
-const SummaryRatingsProperty = styled.div`
+const SummaryRatingsProperty = window.styled.div`
   margin: 0;
   padding: 0;
   font-size: 14px;
@@ -117,7 +116,7 @@ const SummaryRatingsProperty = styled.div`
   white-space: nowrap;
 `;
 
-const SummaryRatingsNumericalValues = styled.div`
+const SummaryRatingsNumericalValues = window.styled.div`
   margin: 0;
   padding: 0;
   font-family: 'BrandonTextMedium', 'Josefin Sans', sans-serif;
@@ -126,13 +125,13 @@ const SummaryRatingsNumericalValues = styled.div`
   font-size: 16px;
 `;
 
-const SummaryOverviewDiv = styled.div`
+const SummaryOverviewDiv = window.styled.div`
   display: flex;  
   padding-top: 1rem;
   max-width: 100%;
 `;
 
-const SummaryNoiseLevel = styled.div`
+const SummaryNoiseLevel = window.styled.div`
   display: inline-flex;
   margin: 0 0 0 0.25rem;
   font-weight: 500;
@@ -146,14 +145,14 @@ const SummaryNoiseLevel = styled.div`
   }
 `;
 
-const SummaryDotDiv = styled.div`
+const SummaryDotDiv = window.styled.div`
   display: inline-flex;  
   padding-top: 5px;
   margin-left: 3px;
   margin-right: 3px;
 `;
 
-const SummaryReviewDot = styled.div`
+const SummaryReviewDot = window.styled.div`
   display: inline-flex;
   height: 2px;
   width: 2px;
@@ -166,7 +165,7 @@ const SummaryReviewDot = styled.div`
   }
 `;
 
-const SummaryNoiseText = styled.span`
+const SummaryNoiseText = window.styled.span`
 font-size: 14px;
 color: #6f737b;
 font-family: 'BrandonTextRegular', 'Josefin Sans', sans-serif;
@@ -176,7 +175,7 @@ font-family: 'BrandonTextRegular', 'Josefin Sans', sans-serif;
 } 
 `;
 
-const SummaryRecommendText = styled.span`
+const SummaryRecommendText = window.styled.span`
 margin-left: 4px;
 font-size: 14px;
 color: #6f737b;
@@ -188,7 +187,7 @@ font-family: 'BrandonTextRegular', 'Josefin Sans', sans-serif;
 `;
 //Right Side of Summary Review
 
-const SummaryRight = styled.div`
+const SummaryRight = window.styled.div`
   width: 256px;
   display: flex;
   font-family: 'BrandonTextRegular', 'Josefin Sans', sans-serif;
