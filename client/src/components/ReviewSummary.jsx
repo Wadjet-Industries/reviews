@@ -116,7 +116,7 @@ const SummaryRatingsProperty = window.styled.div`
   white-space: nowrap;
 `;
 
-const SummaryRatingsNumericalValues = window.styled.div`
+const SummaryRatingsNumericalValues = window.styled.span`
   margin: 0;
   padding: 0;
   font-family: 'BrandonTextMedium', 'Josefin Sans', sans-serif;
@@ -190,6 +190,36 @@ font-family: 'BrandonTextRegular', 'Josefin Sans', sans-serif;
 const SummaryRight = window.styled.div`
   width: 256px;
   display: flex;
+  flex-direction: column;
+  padding-top: 32px;
+  font-family: 'BrandonTextRegular', 'Josefin Sans', sans-serif;
+`;
+
+const ProgressBarDiv = window.styled.div`
+  display:flex;
+  font-family: 'BrandonTextRegular', 'Josefin Sans', sans-serif;
+  padding-bottom: 8px;
+`;
+
+const SummaryProgressBarNumber = window.styled.div`
+  margin-right: 8px;
+  width: 16px;
+  font-family: 'BrandonTextRegular', 'Josefin Sans', sans-serif;
+  font-size: 16px;
+  color: #000000;
+  text-align: center;
+`;
+
+const SummaryProgressBar = window.styled.div`
+  display: block;
+  flex: auto;
+  height: 16px;
+  width: 232px;
+  border: 1px solid #d8d9db;
+  box-sizing: border-box;
+  overflow: hidden;
+  margin-top: 3px;
+  margin-bottom: -2px;
   font-family: 'BrandonTextRegular', 'Josefin Sans', sans-serif;
 `;
 
@@ -200,6 +230,46 @@ class ReviewSummary extends React.Component {
 
 
   render () {
+
+    const SummaryPBFillFive = window.styled.div`
+      display: block;
+      background: #da3743;
+      width: ${this.props.overallSummary.overallFivePercentage}%;
+      height: 100%;
+      font-family: 'BrandonTextRegular', 'Josefin Sans', sans-serif;
+    `;
+
+    const SummaryPBFillFour = window.styled.div`
+      display: block;
+      background: #da3743;
+      width: ${this.props.overallSummary.overallFourPercentage}%;
+      height: 100%;
+      font-family: 'BrandonTextRegular', 'Josefin Sans', sans-serif;
+    `;
+
+    const SummaryPBFillThree = window.styled.div`
+      display: block;
+      background: #da3743;
+      width: ${this.props.overallSummary.overallThreePercentage}%;
+      height: 100%;
+      font-family: 'BrandonTextRegular', 'Josefin Sans', sans-serif;
+    `;
+
+    const SummaryPBFillTwo = window.styled.div`
+      display: block;
+      background: #da3743;
+      width: ${this.props.overallSummary.overallTwoPercentage}%;
+      height: 100%;
+      font-family: 'BrandonTextRegular', 'Josefin Sans', sans-serif;
+    `;
+
+    const SummaryPBFillOne = window.styled.div`
+      display: block;
+      background: #da3743;
+      width: ${this.props.overallSummary.overallOnePercentage}%;
+      height: 100%;
+      font-family: 'BrandonTextRegular', 'Josefin Sans', sans-serif;
+    `;
 
     return (
       <SummaryMainDiv>
@@ -261,6 +331,38 @@ class ReviewSummary extends React.Component {
             <SummaryRecommendText>{this.props.overallSummary.percentWouldRecommend}% of people would recommend it to a friend</SummaryRecommendText>
             </SummaryOverviewDiv>
           </SummaryLeft>
+          <SummaryRight>
+            <ProgressBarDiv>
+              <SummaryProgressBarNumber>5</SummaryProgressBarNumber>
+              <SummaryProgressBar>
+                <SummaryPBFillFive></SummaryPBFillFive>
+              </SummaryProgressBar>
+            </ProgressBarDiv>
+            <ProgressBarDiv>
+              <SummaryProgressBarNumber>4</SummaryProgressBarNumber>
+              <SummaryProgressBar>
+                <SummaryPBFillFour></SummaryPBFillFour>
+              </SummaryProgressBar>
+            </ProgressBarDiv>
+            <ProgressBarDiv>
+              <SummaryProgressBarNumber>3</SummaryProgressBarNumber>
+              <SummaryProgressBar>
+                <SummaryPBFillThree></SummaryPBFillThree>
+              </SummaryProgressBar>
+            </ProgressBarDiv>
+            <ProgressBarDiv>
+              <SummaryProgressBarNumber>2</SummaryProgressBarNumber>
+              <SummaryProgressBar>
+                <SummaryPBFillTwo></SummaryPBFillTwo>
+              </SummaryProgressBar>
+            </ProgressBarDiv>
+            <ProgressBarDiv>
+              <SummaryProgressBarNumber>1</SummaryProgressBarNumber>
+              <SummaryProgressBar>
+                <SummaryPBFillOne></SummaryPBFillOne>
+              </SummaryProgressBar>
+            </ProgressBarDiv>
+          </SummaryRight>
         </SummaryInsideDiv>
       </SummaryMainDiv>
     );

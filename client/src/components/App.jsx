@@ -61,7 +61,12 @@ class App extends React.Component {
         overallAmbienceRating: 5,
         overallValueRating: 5,
         overallNoiseLevel: 'Quiet',
-        percentWouldRecommend: 100
+        percentWouldRecommend: 100,
+        overallFivePercentage: 0,
+        overallFourPercentage: 0,
+        overallThreePercentage: 0,
+        overallTwoPercentage: 0,
+        overallOnePercentage: 0
       }
     }
 
@@ -81,6 +86,12 @@ class App extends React.Component {
     let noiseEnergetic = 0;
     let averageNoiseLevel= '';
     let percentageRecommendationSum = 0;
+    let overallFive = 0;
+    let overallFour = 0;
+    let overallThree = 0;
+    let overallTwo = 0;
+    let overallOne = 0;
+
 
 
     this.state.reviews.forEach(review => {
@@ -90,6 +101,17 @@ class App extends React.Component {
       sumService += review.service;
       sumValue += review.value;
       percentageRecommendationSum += review.would_recommend;
+      if(review.overall === 5) {
+        overallFive++;
+      } else if (review.overall === 4) {
+        overallFour++;
+      } else if (review.overall === 3) {
+        overallThree++;
+      } else if (review.overall === 2) {
+        overallTwo++;
+      } else if (review.overall === 1) {
+        overallOne++;
+      }
       if (!userReviews.includes(review.user)) {
         userReviews.push(review.user);
       }
@@ -124,7 +146,12 @@ class App extends React.Component {
         overallAmbienceRating: (sumAmbience/numberOfReviews).toFixed(1),
         overallValueRating: (sumValue/numberOfReviews).toFixed(1),
         overallNoiseLevel: averageNoiseLevel,
-        percentWouldRecommend: percentageRecommendation
+        percentWouldRecommend: percentageRecommendation,
+        overallFivePercentage: Number.parseInt((overallFive/numberOfReviews)*100),
+        overallFourPercentage: Number.parseInt((overallFour/numberOfReviews)*100),
+        overallThreePercentage: Number.parseInt((overallThree/numberOfReviews)*100),
+        overallTwoPercentage: Number.parseInt((overallTwo/numberOfReviews)*100),
+        overallOnePercentage: Number.parseInt((overallOne/numberOfReviews)*100)
       }
     });
   }
