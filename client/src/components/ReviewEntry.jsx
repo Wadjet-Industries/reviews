@@ -187,7 +187,7 @@ const ReviewReadMore = window.styled.a`
   font-family: 'BrandonTextRegular', 'Josefin Sans', sans-serif;
   
   :hover {
-    color: #DA4743;
+    color: #DA3743;
     cursor: pointer;
     text-decoration: underline;
   }

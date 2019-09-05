@@ -6,7 +6,7 @@ import recommendIcon from '../../../public/recommendIcon.png';
 const SummaryMainDiv = window.styled.div`
   display: block;
   width: 608px;
-  padding-bottom: 2rem;
+  padding-bottom: 32px;
 `;
 
 const SummaryInsideDiv = window.styled.div`
@@ -21,8 +21,8 @@ const SummaryUserReviews = window.styled.div`
   width: 608px;
   color: #2d333f;
   border-bottom: 1px solid #d8d9db;
-  padding-bottom: 1rem;
-  margin: 0 0 1rem;
+  padding-bottom: 16px;
+  margin: 0 0 16px;
   display: flex;
   justify-content: space-between;
   font-family: 'BrandonTextMedium', 'Josefin Sans', sans-serif;
@@ -74,7 +74,7 @@ const SummaryReviewRecentRatings = window.styled.span`
   font-size: 14px;
   color: #2D333F;
   font-family: 'BrandonTextMedium', 'Josefin Sans', sans-serif;
-  margin: 0 0.25rem;
+  margin: 0 4px;
   font-weight: 500;
 `;
 
@@ -93,7 +93,7 @@ const SummaryRatingsPropertiesDiv = window.styled.div`
   display: flex;
   flex-direction: column;
   list-style: none;
-  padding: 0 0.5rem;
+  padding: 0 8px;
   position: relative;
   text-align: center;
   border-right: 1px solid #D3D3D3;
@@ -103,7 +103,7 @@ const SummaryRatingsLastPropertyDiv = window.styled.div`
   display: flex;
   flex-direction: column;
   list-style: none;
-  padding: 0 0.5rem;
+  padding: 0 8px;
   position: relative;
   text-align: center;
 `;
@@ -127,7 +127,7 @@ const SummaryRatingsNumericalValues = window.styled.span`
 
 const SummaryOverviewDiv = window.styled.div`
   display: flex;  
-  padding-top: 1rem;
+  padding-top: 16px;
   max-width: 100%;
 `;
 
@@ -215,12 +215,17 @@ const SummaryProgressBar = window.styled.div`
   flex: auto;
   height: 16px;
   width: 232px;
-  border: 1px solid #d8d9db;
+  border: 1px solid #D8D9DB;
   box-sizing: border-box;
   overflow: hidden;
   margin-top: 3px;
   margin-bottom: -2px;
   font-family: 'BrandonTextRegular', 'Josefin Sans', sans-serif;
+
+  :hover {
+    border: 2px solid #DA3743;
+    cursor: pointer;
+  }
 `;
 
 class ReviewSummary extends React.Component {
@@ -233,7 +238,7 @@ class ReviewSummary extends React.Component {
 
     const SummaryPBFillFive = window.styled.div`
       display: block;
-      background: #da3743;
+      background: #DA3743;
       width: ${this.props.overallSummary.overallFivePercentage}%;
       height: 100%;
       font-family: 'BrandonTextRegular', 'Josefin Sans', sans-serif;
@@ -241,7 +246,7 @@ class ReviewSummary extends React.Component {
 
     const SummaryPBFillFour = window.styled.div`
       display: block;
-      background: #da3743;
+      background: #DA3743;
       width: ${this.props.overallSummary.overallFourPercentage}%;
       height: 100%;
       font-family: 'BrandonTextRegular', 'Josefin Sans', sans-serif;
@@ -249,7 +254,7 @@ class ReviewSummary extends React.Component {
 
     const SummaryPBFillThree = window.styled.div`
       display: block;
-      background: #da3743;
+      background: #DA3743;
       width: ${this.props.overallSummary.overallThreePercentage}%;
       height: 100%;
       font-family: 'BrandonTextRegular', 'Josefin Sans', sans-serif;
@@ -257,7 +262,7 @@ class ReviewSummary extends React.Component {
 
     const SummaryPBFillTwo = window.styled.div`
       display: block;
-      background: #da3743;
+      background: #DA3743;
       width: ${this.props.overallSummary.overallTwoPercentage}%;
       height: 100%;
       font-family: 'BrandonTextRegular', 'Josefin Sans', sans-serif;
@@ -265,7 +270,7 @@ class ReviewSummary extends React.Component {
 
     const SummaryPBFillOne = window.styled.div`
       display: block;
-      background: #da3743;
+      background: #DA3743;
       width: ${this.props.overallSummary.overallOnePercentage}%;
       height: 100%;
       font-family: 'BrandonTextRegular', 'Josefin Sans', sans-serif;
