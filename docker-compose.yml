@@ -5,8 +5,8 @@ services:
     build: .
     depends_on:
       - 'database'
-    volumes: 
-      - ./:/src/app
+    # volumes: 
+    #   - ./:/src/app
     ports: 
       - '3003:3003'
 
