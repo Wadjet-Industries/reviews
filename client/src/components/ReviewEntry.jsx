@@ -212,7 +212,7 @@ class ReviewEntry extends React.Component {
 
   render () {
 
-    const InitialsCircle = styled.div`
+    const InitialsCircle = window.styled.div`
       display: flex;
       justify-content: center;
       position: relative;

@@ -6,8 +6,8 @@ WORKDIR /src/app
 
 COPY . /src/app
 
-RUN yarn install
+RUN npm install
 
 EXPOSE 3003
 
-CMD [ "npm", "start",  ]
+CMD [ "npm", "start" ]

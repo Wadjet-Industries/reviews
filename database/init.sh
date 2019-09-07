@@ -1,0 +1,1 @@
+mysql -u root -p whatever < docker-entrypoint-initdb.d/schema.sql
