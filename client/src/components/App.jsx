@@ -35,6 +35,7 @@ const ReviewPageDiv = window.styled.div`
   display: flex;
   width: 608px;
   justify-content: center;
+  flex-direction: row;
   color: #DA3743;
   font-family: 'BrandonTextRegular', 'Josefin Sans', sans-serif;
 `;
