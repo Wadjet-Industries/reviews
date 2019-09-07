@@ -11,15 +11,15 @@ services:
       - '3003:3003'
 
   database:
-    #build: ./database
-    #command: --default-authentication-plugin=mysql_native_password
-    image: mysql:5.7
+    build: ./database
+    # command: --default-authentication-plugin=mysql_native_password
+    # image: mysql:5.7
     restart: always
     ports:
       - '3306:3306'
     environment:
       MYSQL_DATABASE: 'reviewsDB'
       NYSQL_USER: 'root'
-      MYSQL_ROOT_PASSWORD: 'whatever'
-      # MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
+      # MYSQL_ROOT_PASSWORD: 'whatever'
+      MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
     

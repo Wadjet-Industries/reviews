@@ -16,7 +16,7 @@ app.use((req, res, next) => {
 });
 
 app.get('/api/:restaurantName/reviews', (req, res) => {
-  let input = `select id from restaurants where name='${req.params.restaurantName}';`;
+  let input = `SELECT id FROM Restaurants where name='${req.params.restaurantName}';`;
 
   db.query(input, (error, results) => {
     if (error) {

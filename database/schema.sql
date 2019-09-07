@@ -33,6 +33,6 @@ CREATE TABLE Reviews (
   restaurant_id INT NOT NULL,
   FOREIGN KEY (user_id)
     REFERENCES Users(id),
-  FOREIGN KEY (restaurant_id)
+  FOREIGN KEY (Restaurant_id)
     REFERENCES Restaurants(id)
 ); 

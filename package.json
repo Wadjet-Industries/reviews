@@ -11,7 +11,7 @@
     "react-dev": "webpack -d --watch",
     "server-dev": "nodemon server/index.js",
     "start": "node server/index.js",
-    "create": "mysql -u root -p whatever < schema.sql",
+    "create": "mysql -u root < database/schema.sql",
     "seed": "node database/seed.js",
     "test-watch": "jest --watchAll --config jest.config.js",
     "test-coverage": "jest --verbose --coverage"
