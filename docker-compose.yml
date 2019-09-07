@@ -3,6 +3,7 @@ version: '3'
 services:
   reviews:
     build: .
+    restart: always
     depends_on:
       - 'database'
     volumes: 
@@ -12,14 +13,11 @@ services:
 
   database:
     build: ./database
-    # command: --default-authentication-plugin=mysql_native_password
-    # image: mysql:5.7
     restart: always
     ports:
       - '3306:3306'
     environment:
       MYSQL_DATABASE: 'reviewsDB'
       NYSQL_USER: 'root'
-      # MYSQL_ROOT_PASSWORD: 'whatever'
       MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
     

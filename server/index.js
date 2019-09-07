@@ -3,12 +3,16 @@ const app = express();
 const bodyParser = require('body-parser');
 const db = require('../database/index.js');
 const path = require('path');
+const compression = require('compression');
 
 const PORT = 3003;
+
 
 app.use(express.static(path.join(__dirname,  '../public')));
 
 app.use(bodyParser.json());
+
+app.use(compression());
 
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*');

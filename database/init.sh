@@ -1,1 +1,1 @@
-mysql -u root < docker-entrypoint-initdb.d/schema.sql
+mysql -u root < docker-entrypoint-initdb.d/schema.sql;
