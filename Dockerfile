@@ -6,7 +6,7 @@ WORKDIR /src/app
 
 COPY . /src/app
 
-RUN npm install --only=prod
+RUN npm install 
 
 EXPOSE 3003
 

@@ -3,7 +3,6 @@ version: '3'
 services:
   reviews:
     build: .
-    restart: always
     depends_on:
       - 'database'
     volumes: 
@@ -13,7 +12,6 @@ services:
 
   database:
     build: ./database
-    restart: always
     ports:
       - '3306:3306'
     environment:
