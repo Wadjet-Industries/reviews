@@ -31,6 +31,14 @@ const GlobalStyle = styled.createGlobalStyle`
   }
 `;
 
+const ReviewWrapperDiv = window.styled.div`
+  display: flex;
+  width: 608px;
+  left: 15%;
+  color: #FDAF08;
+  font-family: 'BrandonTextRegular', 'Josefin Sans', sans-serif;
+`;
+
 const ReviewPageDiv = window.styled.div`
   display: flex;
   width: 608px;
@@ -185,23 +193,25 @@ class App extends React.Component {
         <GlobalStyle />
         {this.state.reviews.length === 0 ? <div></div> : 
         <div>
-          <ReviewSummary overallSummary={this.state.overallSummaryObj}/>
-          <ReviewList reviews={this.state.reviews} />
-          <ReviewPageDiv>
-          <ReactPaginate
-          previousLabel={'previous'}
-          nextLabel={'next'}
-          breakLabel={'...'}
-          breakClassName={'break-me'}
-          pageCount={this.state.pageCount}
-          marginPagesDisplayed={1}
-          pageRangeDisplayed={3}
-          onPageChange={this.handlePageClick}
-          containerClassName={'pagination'}
-          subContainerClassName={'pages pagination'}
-          activeClassName={'active'}
-        />
-         </ReviewPageDiv>
+          <ReviewWrapperDiv>
+            <ReviewSummary overallSummary={this.state.overallSummaryObj}/>
+            <ReviewList reviews={this.state.reviews} />
+            <ReviewPageDiv>
+            <ReactPaginate
+            previousLabel={'previous'}
+            nextLabel={'next'}
+            breakLabel={'...'}
+            breakClassName={'break-me'}
+            pageCount={this.state.pageCount}
+            marginPagesDisplayed={1}
+            pageRangeDisplayed={3}
+            onPageChange={this.handlePageClick}
+            containerClassName={'pagination'}
+            subContainerClassName={'pages pagination'}
+            activeClassName={'active'}
+          />
+          </ReviewPageDiv>
+         </ReviewWrapperDiv>
         </div>
         }
       </div>
