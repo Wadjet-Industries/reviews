@@ -33,9 +33,12 @@ const GlobalStyle = styled.createGlobalStyle`
 
 const ReviewWrapperDiv = window.styled.div`
   display: flex;
-  width: 608px;
+  align-content: center;
+  justify-content: center;
+  flex-direction: column;
+  align-items: left;
+  position: relative;
   left: 15%;
-  color: #FDAF08;
   font-family: 'BrandonTextRegular', 'Josefin Sans', sans-serif;
 `;
 
@@ -191,29 +194,29 @@ class App extends React.Component {
     return (
       <div>
         <GlobalStyle />
+        <ReviewWrapperDiv>
         {this.state.reviews.length === 0 ? <div></div> : 
         <div>
-          <ReviewWrapperDiv>
-            <ReviewSummary overallSummary={this.state.overallSummaryObj}/>
-            <ReviewList reviews={this.state.reviews} />
-            <ReviewPageDiv>
-            <ReactPaginate
-            previousLabel={'previous'}
-            nextLabel={'next'}
-            breakLabel={'...'}
-            breakClassName={'break-me'}
-            pageCount={this.state.pageCount}
-            marginPagesDisplayed={1}
-            pageRangeDisplayed={3}
-            onPageChange={this.handlePageClick}
-            containerClassName={'pagination'}
-            subContainerClassName={'pages pagination'}
-            activeClassName={'active'}
-          />
-          </ReviewPageDiv>
-         </ReviewWrapperDiv>
+          <ReviewSummary overallSummary={this.state.overallSummaryObj}/>
+          <ReviewList reviews={this.state.reviews} />
+          <ReviewPageDiv>
+          <ReactPaginate
+          previousLabel={'previous'}
+          nextLabel={'next'}
+          breakLabel={'...'}
+          breakClassName={'break-me'}
+          pageCount={this.state.pageCount}
+          marginPagesDisplayed={1}
+          pageRangeDisplayed={3}
+          onPageChange={this.handlePageClick}
+          containerClassName={'pagination'}
+          subContainerClassName={'pages pagination'}
+          activeClassName={'active'}
+        />
+         </ReviewPageDiv>
         </div>
         }
+        </ReviewWrapperDiv>
       </div>
     );
   }
