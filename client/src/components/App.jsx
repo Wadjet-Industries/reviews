@@ -33,6 +33,7 @@ const GlobalStyle = styled.createGlobalStyle`
 
 const ReviewWrapperDiv = window.styled.div`
   display: flex;
+  width: 608px;
   align-content: center;
   justify-content: center;
   flex-direction: column;
