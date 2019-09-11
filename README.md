@@ -4,16 +4,16 @@
 
 ## Related Projects
 
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
+  - https://github.com/Wadjet-Industries/menus
+  - https://github.com/Wadjet-Industries/photos
+  - https://github.com/Wadjet-Industries/reservations
 
 ## Table of Contents
 
 1. [Usage](#Usage)
 1. [Requirements](#requirements)
 1. [Development](#development)
+1. [API Routes](#API)
 
 ## Usage
 
@@ -37,3 +37,6 @@ npm install -g webpack
 npm install
 ```
 
+### API
+Get: '/api/:listing'
+Post: '/api/post/:listing'
