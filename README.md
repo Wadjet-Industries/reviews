@@ -1,4 +1,4 @@
-# Project Name
+# Wadjet Industries
 
 > Project description
 
@@ -37,6 +37,11 @@ npm install -g webpack
 npm install
 ```
 
-### API
-Get: '/api/:listing'
-Post: '/api/post/:listing'
+### API 
+  
+|Method|Command|
+|-|-|
+|Get| app.get('/api/:listing', router.get)|  
+|Post| app.post('/api/create', router.create)  |
+|Update| app.update('/api/:listing', router.update)  |
+|Delete| app.delete('/api/:listing', router.delete)  |

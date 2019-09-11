@@ -19,7 +19,7 @@ app.use((req, res, next) => {
   next();
 });
 
-app.get('/api/:restaurantName/reviews', (req, res) => {
+app.get('/api/:restaurantName/reviews', (req, res) => { 
   let input = `SELECT id FROM Restaurants where name='${req.params.restaurantName}';`;
 
   db.query(input, (error, results) => {
