@@ -175,7 +175,7 @@ class App extends React.Component {
       path = 'L1';
     }
 
-    axios.get(`http://18.223.151.81:3003/api/${path}/reviews`)
+    axios.get(`http://localhost:3003/api/${path}`)
     .then((response) => {
       // console.log('response: ', response.data);
       this.setState({
