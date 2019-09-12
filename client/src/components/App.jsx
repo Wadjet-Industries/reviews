@@ -60,6 +60,35 @@ const ReviewPageNext = window.styled.div`
   font-family: 'BrandonTextRegular', 'Josefin Sans', sans-serif;
 `;
 
+const ReactPaginateStyle = window.styled.div`
+
+  li {
+    display: inline-block;
+    box-sizing: border-box;
+    min-height: 35px;
+    min-width: 35px;
+    text-align: center;
+    vertical-align: middle;
+    border: 1px solid #ccc;
+    list-type-style: none;
+    border-radius: 20px;
+    margin-right: 5px;
+    padding: 5px;
+
+    a {
+      outline: none;
+    }
+  }
+
+  li:hover {
+    cursor: pointer;
+  }
+
+  .break-me {
+    border: 1px solid #fff;
+  }
+`;
+
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -201,9 +230,10 @@ class App extends React.Component {
           <ReviewSummary overallSummary={this.state.overallSummaryObj}/>
           <ReviewList reviews={this.state.reviews} />
           <ReviewPageDiv>
+          <ReactPaginateStyle>
           <ReactPaginate
-          previousLabel={'previous'}
-          nextLabel={'next'}
+          previousLabel={'❮'}
+          nextLabel={'❯'}
           breakLabel={'...'}
           breakClassName={'break-me'}
           pageCount={this.state.pageCount}
@@ -214,6 +244,7 @@ class App extends React.Component {
           subContainerClassName={'pages pagination'}
           activeClassName={'active'}
         />
+         </ReactPaginateStyle>
          </ReviewPageDiv>
         </div>
         }
