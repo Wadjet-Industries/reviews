@@ -41,7 +41,7 @@ npm install
   
 |Method|Command|
 |-|-|
-|Get| app.get('/api/:listing', router.get)|  
-|Post| app.post('/api/create', router.create)  |
-|Update| app.update('/api/:listing', router.update)  |
-|Delete| app.delete('/api/:listing', router.delete)  |
+|GET| `/api/listing/:listing`|  
+|Post| `/api/listing/`  |
+|PUT| `/api/listing/:listing`  |
+|DELETE| `/api/listing/:listing`|

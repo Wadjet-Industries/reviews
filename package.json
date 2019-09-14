@@ -32,6 +32,7 @@
     "mysql": "^2.17.1",
     "nodemon": "^1.19.1",
     "parser": "^0.1.4",
+    "pg": "^7.12.1",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-paginate": "^6.3.0",
@@ -48,6 +49,7 @@
     "@babel/preset-env": "^7.5.5",
     "@babel/preset-react": "^7.0.0",
     "babel-loader": "^8.0.6",
+    "csv-write-stream": "^2.0.0",
     "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor",
     "url-loader": "^2.1.0"
   }
