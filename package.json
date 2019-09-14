@@ -33,6 +33,7 @@
     "nodemon": "^1.19.1",
     "parser": "^0.1.4",
     "pg": "^7.12.1",
+    "progress": "^2.0.3",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-paginate": "^6.3.0",
