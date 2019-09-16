@@ -1,4 +1,8 @@
-// {
+{
+  "files.exclude": {
+    "**/*.csv": true
+  }
+} // {
 //   "editor.lightbulb.enabled": false,
 //   "editor.parameterHints.enabled": false,
 //   "editor.renderWhitespace": "all",

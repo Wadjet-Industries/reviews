@@ -12,9 +12,9 @@ CREATE TABLE Listings (
 CREATE SCHEMA IF NOT EXISTS people
 CREATE TABLE Users (
   id INT NOT NULL increment PRIMARY KEY,
-  user TEXT NOT NULL,
+  user varchar(30) NOT NULL,
   initials_background varchar(20) NOT NULL,
-  location TEXT NOT NULL,
+  location varchar(150) NOT NULL,
   vip BOOLEAN NOT NULL,
   total_reviews INT NOT NULL
 );

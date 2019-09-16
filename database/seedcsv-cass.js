@@ -3,8 +3,8 @@ const fs = require('fs');
 const faker = require('faker');
 var writer = csvWriter();
 
-const createFile = fs.createWriteStream('reviews100.csv');
-createFile.write('user_id,review,overall,food,service,ambience,value,noise,would_recommend,date,restaurant_id\n', 'utf-8');
+const createFile = fs.createWriteStream('reviewscass.csv');
+createFile.write('id,restaurant_id,user,location,vip,total_reviews,review,overall,food,service,ambience,value,noise,wood_recommend,date\n', 'utf-8');
 
 const getRandomIntInclusive = (min, max) => {
   min = Math.ceil(min);
@@ -12,14 +12,27 @@ const getRandomIntInclusive = (min, max) => {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-const seedReviews = (writer, encoding, callback) => {
+const seedReviewsTable = () => {
   let noiseLevel = ['Quiet', 'Moderate', 'Energetic'];
   let i = 100000000;
   function write() {
-    let ok = true;
     do {
+      let id = 100000000 - i;
       i--;
-      let randomUserID =  getRandomIntInclusive(1, 300);
+      let randomRestaurantID = getRandomIntInclusive(1, 100);
+      let randomUser =  faker.name.firstName();
+      if (getRandomIntInclusive(1, 10) > 3) {
+        randomUser += ' ' + faker.name.lastName();
+      }
+      let randomLocation = faker.address.city();
+      let vipStatus = false;
+      if (getRandomIntInclusive(1, 10) > 7) {
+        vipStatus = true;
+      }
+      let randomTotalReviews = getRandomIntInclusive(1, 30);
+      if (getRandomIntInclusive(1, 10) > 7) {
+        randomTotalReviews = getRandomIntInclusive(31, 200);
+      }
       let randomReview = faker.lorem.paragraph();
       let randomFood = getRandomIntInclusive(1, 5);
       let randomService = getRandomIntInclusive(1, 5);
@@ -40,8 +53,7 @@ const seedReviews = (writer, encoding, callback) => {
       if (getRandomIntInclusive(1, 10) > 7) {
         randomDate = faker.date.recent();
       }
-      let randomRestaurantID = getRandomIntInclusive(1, 100);
-      let data = `${randomUserID},'${randomReview}',${overallAverage},${randomFood},${randomService},${randomAmbience},${randomValue},'${randomNoise}',${recommend},'${randomDate}',${randomRestaurantID}\n`;
+      let data = `${id},${randomRestaurantID},'${randomUser}','${randomLocation}',${vipStatus},${randomTotalReviews},'${randomReview}',${overallAverage},${food},${service},${ambience},${randomValue},'${randomNoise}',${recommend},'${randomDate}'\n`;
       if (i === 0) {
         writer.write(data, encoding, callback);
       } else {
@@ -58,8 +70,7 @@ const seedReviews = (writer, encoding, callback) => {
     }
   }
   write();
-} 
+}
 
-seedReviews(createFile, 'utf-8', () => { writer.end(); });
-
+seedReviewsTable(createFile, 'utf-8', () => { writer.end(); });
 
