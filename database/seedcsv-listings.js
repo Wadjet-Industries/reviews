@@ -6,7 +6,7 @@ var writer = csvWriter();
 const createFile = fs.createWriteStream('listing.csv');
 writer.write('id,restaurant\n','utf-8');
 
-const seedRestaurants = () => {
+const seedRestaurants = (writer, encoding, callback) => {
   let i = 10000000;
   function write() {
     do {
@@ -21,7 +21,7 @@ const seedRestaurants = () => {
       if (i % 100000 === 0) {
         let now = new Date();
         let timeNow = now.getHours() + ":" + now.getMinutes() + ":" + now.getSeconds();
-        console.log(`${timeNow} Wrote user ${i.toLocaleString()}`);
+        console.log(`${timeNow} Wrote user ${(10000000 - i).toLocaleString()}`);
       }
     } while (i > 0 && ok);
     if (i > 0) {
