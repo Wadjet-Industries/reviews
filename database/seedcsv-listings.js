@@ -3,8 +3,8 @@ const fs = require('fs');
 const faker = require('faker');
 var writer = csvWriter();
 
-const createFile = fs.createWriteStream('listing.csv');
-writer.write('id,restaurant\n','utf-8');
+const createFile = fs.createWriteStream('listings.csv');
+createFile.write('name\n','utf-8');
 
 const seedRestaurants = (writer, encoding, callback) => {
   let i = 10000000;
@@ -12,7 +12,8 @@ const seedRestaurants = (writer, encoding, callback) => {
     do {
       i--;
       let name = faker.lorem.word();
-      let data = i + ',' + name + '\n';
+      name = '\'' + name[0].toUpperCase() + name.slice(1) + '\'';
+      let data = name + '\n';
       if (i === 0) {
         writer.write(data, encoding, callback);
       } else {
@@ -29,11 +30,11 @@ const seedRestaurants = (writer, encoding, callback) => {
     }
   }
   write();
+  console.log('End of seed restaurants');
 };
 
 
 seedRestaurants(createFile, 'utf-8', () => {
   writer.end();
 });
-console.log('End of seed restaurants');
 

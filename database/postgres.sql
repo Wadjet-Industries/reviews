@@ -1,42 +1,49 @@
-DROP DATABASE IF EXISTS reviewsDB;
-CREATE DATABASE IF NOT EXISTS reviewsDB;
+DROP DATABASE IF EXISTS reviewsmodule;
+CREATE DATABASE reviewsmodule;
 
-USE reviewsDB;
+\c reviewsmodule;
 
-CREATE SCHEMA IF NOT EXISTS restaurants
-CREATE TABLE Listings (
-  id integer NOT NULL increment PRIMARY KEY,
-  name varchar(50) NOT NULL 
+CREATE TABLE restaurants (
+  id SERIAL PRIMARY KEY,
+  name VARCHAR(50) NOT NULL 
 );
 
-CREATE SCHEMA IF NOT EXISTS people
-CREATE TABLE Users (
-  id INT NOT NULL increment PRIMARY KEY,
-  user varchar(30) NOT NULL,
-  initials_background varchar(20) NOT NULL,
-  location varchar(150) NOT NULL,
+CREATE TABLE people (
+  id SERIAL PRIMARY KEY,
+  "user" VARCHAR(30) NOT NULL,
+  initials_background VARCHAR(20) NOT NULL,
+  location VARCHAR(150) NOT NULL,
   vip BOOLEAN NOT NULL,
-  total_reviews INT NOT NULL
+  total_reviews INTEGER NOT NULL
 );
 
-CREATE TYPE noise AS ENUM ('quiet', 'moderate', 'loud');
+CREATE TYPE noise_level AS ENUM ('Quiet', 'Moderate', 'Energetic');
 
-CREATE SCHEMA IF NOT EXISTS reviewschema
-CREATE TABLE Reviews (
-  id INT NOT NULL increment PRIMARY KEY,
-  user_id INT NOT NULL,
+CREATE TABLE reviews (
+  id SERIAL PRIMARY KEY,
+  user_id INTEGER NOT NULL,
   review TEXT NOT NULL, 
-  overall INT NOT NULL,
-  food INT NOT NULL,
-  service INT NOT NULL,
-  ambience INT NOT NULL,
-  value INT NOT NULL,
-  noise noise,
+  overall REAL NOT NULL,
+  food INTEGER NOT NULL,
+  service INTEGER NOT NULL,
+  ambience INTEGER NOT NULL,
+  value INTEGER NOT NULL,
+  noise noise_level,
   would_recommend BOOLEAN NOT NULL,
   date DATE NOT NULL, 
-  restaurant_id INT NOT NULL,
+  restaurant_id INTEGER NOT NULL,
   FOREIGN KEY (user_id)
-    REFERENCES Users(id),
-  FOREIGN KEY (Restaurant_id)
-    REFERENCES Restaurants(id)
+    REFERENCES people(id),
+  FOREIGN KEY (restaurant_id)
+    REFERENCES restaurants(id)
 ); 
+
+COPY restaurants("name")
+FROM '/Users/yanshu/Documents/CodingHW/reviews/listings.csv' DELIMITER ',' CSV HEADER; 
+
+COPY people("user",initials_background,location,vip,total_reviews)
+FROM '/Users/yanshu/Documents/CodingHW/reviews/users.csv' DELIMITER ',' CSV HEADER; 
+
+COPY reviews(user_id,review,overall,food,service,ambience,value,noise,would_recommend,date,restaurant_id)
+FROM '/Users/yanshu/Documents/CodingHW/reviews/reviews100.csv' DELIMITER ',' CSV HEADER; 
+
