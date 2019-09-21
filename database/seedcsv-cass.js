@@ -3,8 +3,8 @@ const fs = require('fs');
 const faker = require('faker');
 var writer = csvWriter();
 
-const createFile = fs.createWriteStream('reviewscass.csv');
-createFile.write('id,restaurant_id,user,location,vip,total_reviews,review,overall,food,service,ambience,value,noise,wood_recommend,date\n', 'utf-8');
+const createFile = fs.createWriteStream('reviewscass2.csv');
+createFile.write('id,restaurant_id,user,location,vip,total_reviews,review,overall,food,service,ambience,value,noise,would_recommend,date\n', 'utf-8');
 
 const getRandomIntInclusive = (min, max) => {
   min = Math.ceil(min);
@@ -12,14 +12,16 @@ const getRandomIntInclusive = (min, max) => {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-const seedReviewsTable = () => {
+// update i, id, restaurant max id number
+const seedReviewsTable = (writer, encoding, callback) => {
   let noiseLevel = ['Quiet', 'Moderate', 'Energetic'];
-  let i = 100000000;
+  const max = 25000000;
+  let i = max;
   function write() {
     do {
-      let id = 100000000 - i;
+      let data = (max - i + 25000000).toString();
       i--;
-      let randomRestaurantID = getRandomIntInclusive(1, 100);
+      let randomRestaurantID = getRandomIntInclusive(1, 10000000);
       let randomUser =  faker.name.firstName();
       if (getRandomIntInclusive(1, 10) > 3) {
         randomUser += ' ' + faker.name.lastName();
@@ -53,7 +55,7 @@ const seedReviewsTable = () => {
       if (getRandomIntInclusive(1, 10) > 7) {
         randomDate = faker.date.recent();
       }
-      let data = `${id},${randomRestaurantID},'${randomUser}','${randomLocation}',${vipStatus},${randomTotalReviews},'${randomReview}',${overallAverage},${food},${service},${ambience},${randomValue},'${randomNoise}',${recommend},'${randomDate}'\n`;
+      data += ',' + randomRestaurantID + ',\'' + randomUser + '\',\'' + randomLocation + '\',' + vipStatus + ',' + randomTotalReviews + ',\'' + randomReview + '\',' + overallAverage + ',' + randomFood + ',' + randomService + ',' + randomAmbience + ',' + randomValue + ',\'' + randomNoise + '\',' + recommend + ',\'' + randomDate + '\'\n';
       if (i === 0) {
         writer.write(data, encoding, callback);
       } else {
@@ -62,7 +64,7 @@ const seedReviewsTable = () => {
       if (i % 100000 === 0) {
         let now = new Date();
         let timeNow = now.getHours() + ":" + now.getMinutes() + ":" + now.getSeconds();
-        console.log(`${timeNow} Wrote user ${(100000000 - i).toLocaleString()}`);
+        console.log(timeNow + ' Wrote user ' + (max - i).toLocaleString() );
       }
     } while (i > 0 && ok);
     if (i > 0) {

@@ -1,14 +1,12 @@
-const mysql = require('mysql');
-const mysqlConfig = require('./config.js');
+const { Pool, Client } = require('pg');
 
-const connection = mysql.createConnection(mysqlConfig);
-
-connection.connect(function(err) {
-  if (err) {
-    console.error('error connecting: ' + err.stack);
-    return;
-  }
-  console.log('connected as id ' + connection.threadId);
+const pool = new Pool({
+  database: 'reviewsmodule',
 });
 
-module.exports = connection;
+pool.query('SELECT NOW()', (err, res) => {
+  if (err) console.log('DB connnect error', err);
+  console.log(res.rows[0].now + ' DB connect started');
+});
+
+module.exports = pool;

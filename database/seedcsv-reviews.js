@@ -19,7 +19,7 @@ const seedReviews = (writer, encoding, callback) => {
     let ok = true;
     do {
       i--;
-      let randomUserID =  getRandomIntInclusive(1, 300);
+      let randomUserID =  getRandomIntInclusive(1, 10000000);
       let randomReview = faker.lorem.paragraph();
       let randomFood = getRandomIntInclusive(1, 5);
       let randomService = getRandomIntInclusive(1, 5);
@@ -40,8 +40,8 @@ const seedReviews = (writer, encoding, callback) => {
       if (getRandomIntInclusive(1, 10) > 7) {
         randomDate = faker.date.recent();
       }
-      let randomRestaurantID = getRandomIntInclusive(1, 100);
-      let data = `${randomUserID},'${randomReview}',${overallAverage},${randomFood},${randomService},${randomAmbience},${randomValue},'${randomNoise}',${recommend},'${randomDate}',${randomRestaurantID}\n`;
+      let randomRestaurantID = getRandomIntInclusive(1, 10000000);
+      let data = `${randomUserID},${randomReview},${overallAverage},${randomFood},${randomService},${randomAmbience},${randomValue},${randomNoise},${recommend},${randomDate},${randomRestaurantID}\n`;
       if (i === 0) {
         writer.write(data, encoding, callback);
       } else {

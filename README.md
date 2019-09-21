@@ -42,17 +42,33 @@ npm install
 |Method|Command|
 |-|-|
 |GET| `/api/listing/:listing`|  
-|Post| `/api/listing/`  |
+|POST| `/api/listing/`  |
 |PUT| `/api/listing/:listing`  |
 |DELETE| `/api/listing/:listing`|
 
-### Using Postgres script file
-- create tables and copy data: 
-> `psql -U username -a -f database/postgres.sql`  
+Data returns under the `rows` property of the response object.
+
+## Databases
   
-|Action|Command|  
+### Using Postgres script file
+- run PostGres script file from terminal 
+>>`psql -U username -a -f database/postgres.sql`  
+  
+|Action|PSQL Command|  
 |-|-|  
 |View databases|`\l`|
 |Select database|`\c database_name`|
 |View tables|`\dt`|
 |View table schema|`d table_name`|
+
+### Using Cassandra
+- Running a Cassandra script file from within `cqlsh`
+> cqlsh> `SOURCE 'database/cassandra.cql'`
+
+|Action|CQLSH Command|  
+|-|-|  
+|Drop keyspace|`drop keyspace reviewsmod`|
+|View keyspaces|`describe keyspaces`|
+  
+**Reference**:  
+http://cassandra.apache.org/doc/latest/tools/cqlsh.html#cqlsh

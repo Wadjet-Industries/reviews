@@ -1,6 +1,8 @@
 *.csv
 public/bundle.js
 __tests__
+screenshots/
+csv/
 
 ## MAC files ##
 .DS_Store
@@ -29,3 +31,6 @@ build/
 dist/
 
 users.csv
+
+
+

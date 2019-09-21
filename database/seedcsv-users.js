@@ -34,7 +34,7 @@ const seedUsers = (writer, encoding, callback) => {
       if (getRandomIntInclusive(1, 10) > 7) {
         randomTotalReviews = getRandomIntInclusive(31, 200);
       }
-      let data = `'${randomUser}','${randomInitialsBG}','${randomLocation}',${vipStatus},${randomTotalReviews}\n`;
+      let data = `${randomUser},${randomInitialsBG},${randomLocation},${vipStatus},${randomTotalReviews}\n`;
       if (i === 0) {
         writer.write(data, encoding, callback);
       } else {
