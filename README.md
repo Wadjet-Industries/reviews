@@ -52,7 +52,7 @@ Data returns under the `rows` property of the response object.
   
 ### Using Postgres script file
 - run PostGres script file from terminal 
->>`psql -U username -a -f database/postgres.sql`  
+>>`psql -U [username_here] -a -f database/postgres.sql`  
   
 |Action|PSQL Command|  
 |-|-|  

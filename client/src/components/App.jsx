@@ -143,15 +143,15 @@ class App extends React.Component {
       sumService += review.service;
       sumValue += review.value;
       percentageRecommendationSum += review.would_recommend;
-      if(review.overall === 5) {
+      if(Math.round(review.overall) === 5) {
         overallFive++;
-      } else if (review.overall === 4) {
+      } else if (Math.round(review.overall) === 4) {
         overallFour++;
-      } else if (review.overall === 3) {
+      } else if (Math.round(review.overall) === 3) {
         overallThree++;
-      } else if (review.overall === 2) {
+      } else if (Math.round(review.overall) === 2) {
         overallTwo++;
-      } else if (review.overall === 1) {
+      } else if (Math.round(review.overall) === 1) {
         overallOne++;
       }
       if (!userReviews.includes(review.user)) {
@@ -201,15 +201,16 @@ class App extends React.Component {
   getReviews() {
     let path = window.location.pathname.split('/')[1];
     if(Number(path.slice(1)) <= 0 || Number(path.slice(1)) > 100) {
-      path = 'L1';
+      path = '36';
     }
 
-    axios.get(`http://localhost:3003/api/${path}`)
+    axios.get(`http://localhost:3003/api/listing/${path}`)
     .then((response) => {
       // console.log('response: ', response.data);
       this.setState({
         reviews: response.data
       }, this.filterReviews)
+      console.log(response.data);
     })
     .catch(function (error) {
       console.log(error);
