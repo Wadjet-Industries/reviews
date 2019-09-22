@@ -33,9 +33,15 @@ An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
 From within the root directory:
 
 ```sh
-npm install -g webpack
-npm install
+    npm install
+    npm run react-dev
+    npm run seed-listings
+    npm run seed-users
+    npm run seed-reviews
+    npm run create
+    npm start
 ```
+Make sure to change the username for your PostGres login before using `npm run create`
 
 ### API 
   
