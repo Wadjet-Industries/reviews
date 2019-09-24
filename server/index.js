@@ -2,6 +2,7 @@ require('newrelic');
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
+const morgan = require('morgan');
 const db = require('../database/index.js');
 const path = require('path');
 const compression = require('compression');
@@ -12,17 +13,18 @@ const PORT = 3003;
 app.use(express.static(path.join(__dirname,  '../public')));
 
 app.use(bodyParser.json());
+// app.use(morgan('tiny'));
 
 app.use(compression());
 
-app.use((req, res, next) => {
+app.use(function accessControlAllowOrigin(req, res, next) {
   res.header('Access-Control-Allow-Origin', '*');
   next();
 });
 
-app.get('/api/listing/:restaurantName', (req, res) => { 
+app.get('/api/listing/:restaurantName', function getRequest(req, res) { 
   let joinQuery = `SELECT * FROM people JOIN reviews ON reviews.restaurant_id= '${req.params.restaurantName}' AND reviews.user_id=people.id`;
-  db.query(joinQuery, (error, results) => {
+  db.query(joinQuery, function dbQuery(error, results) {
     if (error) {
       console.log(error);
       res.send(error);
@@ -32,7 +34,7 @@ app.get('/api/listing/:restaurantName', (req, res) => {
   });
 });
 
-app.post('/api/listing', (req, res) => { 
+app.post('/api/listing', function postRequest(req, res) { 
   let insertQuery = `INSERT INTO reviews (user_id,review,overall,food,service,ambience,value,noise,would_recommend,date,restaurant_id) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING *`;
   db.query(insertQuery, req.body, (error, results) => {
     if (error) {
@@ -46,7 +48,7 @@ app.post('/api/listing', (req, res) => {
 
 // user_id,review,overall,food,service,ambience,value,noise,would_recommend,date,restaurant_id
 
-app.put('/api/listing/:restaurantName', (req, res) => { 
+app.put('/api/listing/:restaurantName', function putRequest(req, res) { 
   let query = `UPDATE reviews SET review=$1,
     overall=$2,
     food=$3,
@@ -67,7 +69,7 @@ app.put('/api/listing/:restaurantName', (req, res) => {
   });
 });
 
-app.delete('/api/listing/:restaurantName', (req, res) => { 
+app.delete('/api/listing/:restaurantName', function deleteRequest(req, res) { 
   let query = `DELETE FROM reviews WHERE id = ${req.params.reviewId}`;
   db.query(query, (error, results) => {
     if (error) {

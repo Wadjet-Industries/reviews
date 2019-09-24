@@ -199,10 +199,8 @@ class App extends React.Component {
   }
 
   getReviews() {
-    let path = window.location.pathname.split('/')[1];
-    if(Number(path.slice(1)) <= 0 || Number(path.slice(1)) > 100) {
-      path = '36';
-    }
+    // let path = window.location.pathname.split('/')[1];
+    let path = this.props.id || 36;
 
     axios.get(`http://localhost:3003/api/listing/${path}`)
     .then((response) => {
@@ -210,7 +208,6 @@ class App extends React.Component {
       this.setState({
         reviews: response.data
       }, this.filterReviews)
-      console.log(response.data);
     })
     .catch(function (error) {
       console.log(error);
