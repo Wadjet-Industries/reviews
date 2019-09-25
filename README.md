@@ -13,7 +13,8 @@
 1. [Usage](#Usage)
 1. [Requirements](#requirements)
 1. [Development](#development)
-1. [API Routes](#API)
+1. [API Routes](#API)  
+1. [Databases](#databases)  
 
 ## Usage
 
@@ -65,7 +66,9 @@ Data returns under the `rows` property of the response object.
 |View databases|`\l`|
 |Select database|`\c database_name`|
 |View tables|`\dt`|
-|View table schema|`d table_name`|
+|View table schema|`\d table_name`|
+  
+[^ Back to top](#Wadjet&nbsp;Industries)  
 
 ### Using Cassandra
 - Running a Cassandra script file from within `cqlsh`

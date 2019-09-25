@@ -1,9 +1,9 @@
+dbpswd.js
 *.csv
 public/bundle.js
 __tests__
 screenshots/
 csv/
-hello.yml
 newrelic.js
 
 ## MAC files ##
