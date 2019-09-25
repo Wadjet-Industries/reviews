@@ -3,7 +3,7 @@ const fs = require('fs');
 const faker = require('faker');
 var writer = csvWriter();
 
-const createFile = fs.createWriteStream('reviews100.csv');
+const createFile = fs.createWriteStream('reviews30_4.csv');
 createFile.write('user_id,review,overall,food,service,ambience,value,noise,would_recommend,date,restaurant_id\n', 'utf-8');
 
 const getRandomIntInclusive = (min, max) => {
@@ -14,7 +14,8 @@ const getRandomIntInclusive = (min, max) => {
 
 const seedReviews = (writer, encoding, callback) => {
   let noiseLevel = ['Quiet', 'Moderate', 'Energetic'];
-  let i = 100000000;
+  const max = 100000000;
+  let i = max;
   function write() {
     let ok = true;
     do {
@@ -50,7 +51,7 @@ const seedReviews = (writer, encoding, callback) => {
       if (i % 100000 === 0) {
         let now = new Date();
         let timeNow = now.getHours() + ":" + now.getMinutes() + ":" + now.getSeconds();
-        console.log(`${timeNow} Wrote user ${(100000000 - i).toLocaleString()}`);
+        console.log(`${timeNow} Wrote user ${(max - i).toLocaleString()}`);
       }
     } while (i > 0 && ok);
     if (i > 0) {

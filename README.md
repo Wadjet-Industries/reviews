@@ -1,12 +1,12 @@
 # Wadjet Industries
 
-> Project description
+> Reservations application to find available tables at restaurants.
 
-## Related Projects
+## Wadjet Related Projects
 
-  - https://github.com/Wadjet-Industries/menus
-  - https://github.com/Wadjet-Industries/photos
-  - https://github.com/Wadjet-Industries/reservations
+  - [Menu Module](https://github.com/Wadjet-Industries/menus)
+  - [Photos Module](https://github.com/Wadjet-Industries/photos)
+  - [Reservations Module](https://github.com/Wadjet-Industries/reservations)
 
 ## Table of Contents
 
