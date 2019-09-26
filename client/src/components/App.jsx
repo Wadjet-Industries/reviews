@@ -7,6 +7,7 @@ import BrandonTextLight from '../../../public/Fonts/BrandonText-Light.otf';
 import BrandonTextMedium from '../../../public/Fonts/BrandonText-Medium.otf';
 import BrandonTextBold from '../../../public/Fonts/BrandonText-Bold.otf';
 import ReactPaginate from 'react-paginate';
+import mockData from '../../../database/mockdata.js';
 
 const GlobalStyle = styled.createGlobalStyle`
   html {
@@ -200,17 +201,21 @@ class App extends React.Component {
 
   getReviews() {
     // let path = window.location.pathname.split('/')[1];
-    let path = this.props.id || 36;
+    let path = this.props.id || null;
 
     axios.get(`http://localhost:3003/api/listing/${path}`)
     .then((response) => {
-      // console.log('response: ', response.data);
+      console.log('response: ', response.data);
+      let axiosQuery = response.data;
+      if (response.data.name === "error") {
+        axiosQuery = mockData;
+      }
       this.setState({
-        reviews: response.data
+        reviews: mockData
       }, this.filterReviews)
     })
     .catch(function (error) {
-      console.log(error);
+      console.log('Error getReviews() ' + error);
     });
   }
 
