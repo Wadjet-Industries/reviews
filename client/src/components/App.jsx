@@ -201,17 +201,13 @@ class App extends React.Component {
 
   getReviews() {
     // let path = window.location.pathname.split('/')[1];
-    let path = this.props.id || null;
+    let path = this.props.id || 36;
 
     axios.get(`http://localhost:3003/api/listing/${path}`)
     .then((response) => {
-      console.log('response: ', response.data);
-      let axiosQuery = response.data;
-      if (response.data.name === "error") {
-        axiosQuery = mockData;
-      }
+      // console.log('response: ', response.data);
       this.setState({
-        reviews: mockData
+        reviews: response.data
       }, this.filterReviews)
     })
     .catch(function (error) {

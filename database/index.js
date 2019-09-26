@@ -1,5 +1,4 @@
 const { Pool, Client } = require('pg');
-const pswd = require('./dbpswd.js');
 
 const pool = new Pool({
   database: 'reviewsmodule',
