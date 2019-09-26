@@ -1,5 +1,6 @@
 dbpswd.js
 *.csv
+*.csv.gz
 public/bundle.js
 __tests__
 screenshots/

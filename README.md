@@ -67,6 +67,10 @@ Data returns under the `rows` property of the response object.
 |Select database|`\c database_name`|
 |View tables|`\dt`|
 |View table schema|`\d table_name`|
+
+* When selecting, you can use `limit 5` to show only the first 5 rows matching your query.
+* Seeding reviews table may have issues if foreign keys are present. To add foreign keys in retroactively, use command `ALTER TABLE reviews ADD CONSTRAINT restaurant_id_fkey FOREIGN KEY (restaurant_id) REFERENCES restaurants (id);`
+* Remove foreign key using: `ALTER TABLE reviews DROP CONSTRAINT restaurant_id_fkey;`
   
 [^ Back to top](#Wadjet&nbsp;Industries)  
 
