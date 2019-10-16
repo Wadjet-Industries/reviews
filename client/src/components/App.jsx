@@ -200,7 +200,7 @@ class App extends React.Component {
   }
 
   getReviews() {
-    // let path = window.location.pathname.split('/')[1];
+    // let path = window.location.pathname.match(/([0-9]+)\/$/)[1];
     let path = this.props.id || 36;
 
     axios.get(`http://localhost:3003/api/listing/${path}`)
