@@ -48,6 +48,4 @@ COPY reviews(user_id,review,overall,food,service,ambience,value,noise,would_reco
 FROM '/Users/yanshu/Documents/CodingHW/reviews/reviews100.csv' DELIMITER ',' CSV HEADER; 
 
 CREATE INDEX people_idx on people(id);
-CREATE INDEX restaurant_idx on reviews(restaurant_id);
-CREATE INDEX reviews_user_idx on reviews(user_id);
-CREATE INDEX idx_reviews on reviews(restaurant_id, user_id);
+CREATE INDEX reviews_idx on reviews(restaurant_id, user_id);

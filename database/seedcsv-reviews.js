@@ -3,7 +3,7 @@ const fs = require('fs');
 const faker = require('faker');
 var writer = csvWriter();
 
-const createFile = fs.createWriteStream('reviews10b.csv');
+const createFile = fs.createWriteStream('reviews30b.csv');
 createFile.write('user_id,review,overall,food,service,ambience,value,noise,would_recommend,date,restaurant_id\n', 'utf-8');
 
 const getRandomIntInclusive = (min, max) => {
@@ -14,7 +14,7 @@ const getRandomIntInclusive = (min, max) => {
 
 const seedReviews = (writer, encoding, callback) => {
   let noiseLevel = ['Quiet', 'Moderate', 'Energetic'];
-  const max = 10000000;
+  const max = 30000000;
   let i = max;
   function write() {
     let ok = true;
@@ -22,6 +22,7 @@ const seedReviews = (writer, encoding, callback) => {
       i--;
       let randomUserID =  getRandomIntInclusive(1, 10000000);
       let randomReview = faker.lorem.paragraph();
+      // can use .sentence() instead
       let randomFood = getRandomIntInclusive(1, 5);
       let randomService = getRandomIntInclusive(1, 5);
       let randomAmbience = getRandomIntInclusive(1, 5);
