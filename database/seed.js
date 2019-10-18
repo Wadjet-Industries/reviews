@@ -26,7 +26,7 @@ const seedUsers = () => {
   for (var i = 1; i <= 300; i++) {
     let randomUser =  faker.name.firstName();
     if (getRandomIntInclusive(1, 10) > 3) {
-      randomUser += faker.name.lastName();
+      randomUser += ' ' + faker.name.lastName();
     }
     let initials = randomUser[0].toUpperCase();
     for(let i = 1; i <= randomUser.length; i++) {

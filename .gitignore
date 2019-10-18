@@ -1,3 +1,11 @@
+*.csv
+public/bundle.js
+__tests__
+screenshots/
+csv/
+hello.yml
+newrelic.js
+
 ## MAC files ##
 .DS_Store
 
@@ -23,4 +31,8 @@ coverage
 # Compiled Dirs (http://nodejs.org/api/addons.html)
 build/
 dist/
+
+users.csv
+
+
 

@@ -41,7 +41,34 @@ npm install
   
 |Method|Command|
 |-|-|
-|Get| app.get('/api/:listing', router.get)|  
-|Post| app.post('/api/create', router.create)  |
-|Update| app.update('/api/:listing', router.update)  |
-|Delete| app.delete('/api/:listing', router.delete)  |
+|GET| `/api/listing/:listing`|  
+|POST| `/api/listing/`  |
+|PUT| `/api/listing/:listing`  |
+|DELETE| `/api/listing/:listing`|
+
+Data returns under the `rows` property of the response object.
+
+## Databases
+  
+### Using Postgres script file
+- run PostGres script file from terminal 
+>>`psql -U [username_here] -a -f database/postgres.sql`  
+  
+|Action|PSQL Command|  
+|-|-|  
+|View databases|`\l`|
+|Select database|`\c database_name`|
+|View tables|`\dt`|
+|View table schema|`d table_name`|
+
+### Using Cassandra
+- Running a Cassandra script file from within `cqlsh`
+> cqlsh> `SOURCE 'database/cassandra.cql'`
+
+|Action|CQLSH Command|  
+|-|-|  
+|Drop keyspace|`drop keyspace reviewsmod`|
+|View keyspaces|`describe keyspaces`|
+  
+**Reference**:  
+http://cassandra.apache.org/doc/latest/tools/cqlsh.html#cqlsh

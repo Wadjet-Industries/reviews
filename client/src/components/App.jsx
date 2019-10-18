@@ -60,6 +60,35 @@ const ReviewPageNext = window.styled.div`
   font-family: 'BrandonTextRegular', 'Josefin Sans', sans-serif;
 `;
 
+const ReactPaginateStyle = window.styled.div`
+
+  li {
+    display: inline-block;
+    box-sizing: border-box;
+    min-height: 35px;
+    min-width: 35px;
+    text-align: center;
+    vertical-align: middle;
+    border: 1px solid #ccc;
+    list-type-style: none;
+    border-radius: 20px;
+    margin-right: 5px;
+    padding: 5px;
+
+    a {
+      outline: none;
+    }
+  }
+
+  li:hover {
+    cursor: pointer;
+  }
+
+  .break-me {
+    border: 1px solid #fff;
+  }
+`;
+
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -114,15 +143,15 @@ class App extends React.Component {
       sumService += review.service;
       sumValue += review.value;
       percentageRecommendationSum += review.would_recommend;
-      if(review.overall === 5) {
+      if(Math.round(review.overall) === 5) {
         overallFive++;
-      } else if (review.overall === 4) {
+      } else if (Math.round(review.overall) === 4) {
         overallFour++;
-      } else if (review.overall === 3) {
+      } else if (Math.round(review.overall) === 3) {
         overallThree++;
-      } else if (review.overall === 2) {
+      } else if (Math.round(review.overall) === 2) {
         overallTwo++;
-      } else if (review.overall === 1) {
+      } else if (Math.round(review.overall) === 1) {
         overallOne++;
       }
       if (!userReviews.includes(review.user)) {
@@ -172,15 +201,16 @@ class App extends React.Component {
   getReviews() {
     let path = window.location.pathname.split('/')[1];
     if(Number(path.slice(1)) <= 0 || Number(path.slice(1)) > 100) {
-      path = 'L1';
+      path = '36';
     }
 
-    axios.get(`http://18.223.151.81:3003/api/${path}/reviews`)
+    axios.get(`http://localhost:3003/api/listing/${path}`)
     .then((response) => {
       // console.log('response: ', response.data);
       this.setState({
         reviews: response.data
       }, this.filterReviews)
+      console.log(response.data);
     })
     .catch(function (error) {
       console.log(error);
@@ -201,9 +231,10 @@ class App extends React.Component {
           <ReviewSummary overallSummary={this.state.overallSummaryObj}/>
           <ReviewList reviews={this.state.reviews} />
           <ReviewPageDiv>
+          <ReactPaginateStyle>
           <ReactPaginate
-          previousLabel={'previous'}
-          nextLabel={'next'}
+          previousLabel={'❮'}
+          nextLabel={'❯'}
           breakLabel={'...'}
           breakClassName={'break-me'}
           pageCount={this.state.pageCount}
@@ -214,6 +245,7 @@ class App extends React.Component {
           subContainerClassName={'pages pagination'}
           activeClassName={'active'}
         />
+         </ReactPaginateStyle>
          </ReviewPageDiv>
         </div>
         }
