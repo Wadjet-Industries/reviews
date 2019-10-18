@@ -1,10 +1,12 @@
+dbpswd.js
 *.csv
+*.csv.gz
 public/bundle.js
 __tests__
 screenshots/
 csv/
-hello.yml
 newrelic.js
+loaderio*.txt
 
 ## MAC files ##
 .DS_Store

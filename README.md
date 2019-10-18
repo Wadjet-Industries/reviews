@@ -1,19 +1,20 @@
 # Wadjet Industries
 
-> Project description
+> Reservations application to find available tables at restaurants.
 
-## Related Projects
+## Wadjet Related Projects
 
-  - https://github.com/Wadjet-Industries/menus
-  - https://github.com/Wadjet-Industries/photos
-  - https://github.com/Wadjet-Industries/reservations
+  - [Menu Module](https://github.com/Wadjet-Industries/menus)
+  - [Photos Module](https://github.com/Wadjet-Industries/photos)
+  - [Reservations Module](https://github.com/Wadjet-Industries/reservations)
 
 ## Table of Contents
 
 1. [Usage](#Usage)
 1. [Requirements](#requirements)
 1. [Development](#development)
-1. [API Routes](#API)
+1. [API Routes](#API)  
+1. [Databases](#databases)  
 
 ## Usage
 
@@ -65,7 +66,15 @@ Data returns under the `rows` property of the response object.
 |View databases|`\l`|
 |Select database|`\c database_name`|
 |View tables|`\dt`|
-|View table schema|`d table_name`|
+|View table schema|`\d table_name`|
+
+* When selecting, you can use `limit 5` to show only the first 5 rows matching your query.
+* Seeding reviews table may have issues if foreign keys are present. To add foreign keys in retroactively, use command `ALTER TABLE reviews ADD CONSTRAINT user_id_fkey FOREIGN KEY (user_id) REFERENCES people (id);`
+* Remove foreign key using: `ALTER TABLE reviews DROP CONSTRAINT user_id_fkey;`
+* Load into PostGres from zip file:  
+```pv filename.csv.gz | gunzip | psql -d reviewsmodule -U postgres -c "copy reviews(headers) from stdin with csv header;"```  
+
+[^ Back to top](#Wadjet&nbsp;Industries)  
 
 ### Using Cassandra
 - Running a Cassandra script file from within `cqlsh`
